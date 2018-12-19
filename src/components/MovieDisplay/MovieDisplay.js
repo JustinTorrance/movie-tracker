@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import MovieCard from '../MovieCard/MovieCard'
 import { uid } from 'react-uid'
 import './MovieDisplay.scss'
@@ -16,4 +17,8 @@ const MovieDisplay = ({movies}) => {
   )
 }
 
-export default MovieDisplay
+const mapStateToProps = (state) => ({
+  movies: state.movies
+})
+
+export default connect(mapStateToProps)(MovieDisplay)

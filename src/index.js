@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import AppContainer from './containers/AppContainer'
+import App from './components/App/App'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter } from 'react-router-dom'
 import { createStore } from 'redux'
@@ -19,7 +19,7 @@ const store = createStore(rootReducer, devTools)
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Route path='/' component={AppContainer} />
+      <Route path='/' component={App} />
     </BrowserRouter> 
   </Provider>,
 
