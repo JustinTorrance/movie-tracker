@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import MovieDisplay from '../MovieDisplay/MovieDisplay'
 import { fetchData } from '../../utils/apiCalls'
 import { connect } from 'react-redux'
-import { loadMovies } from '../../actions/index'
+import { loadMovies, signOut } from '../../actions/index'
 import './App.scss'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from '../Login/Login'
+import Signup from '../Signup/Signup'
+
 
 class App extends Component {
   constructor() {
@@ -18,18 +20,30 @@ class App extends Component {
   }
 
   render() {
+    const { user, signOut } = this.props
     return (
       <div className="App">
         <h1 className="movie-tracker">movie tracker</h1>
+        <button onClick={signOut}>Sign Out</button>
         <Switch>
           <Route 
             exact
             path='/'
-            component={MovieDisplay}
+            render={() => {
+              if (!user.name) {
+                return <Redirect to='/login' />
+              } else {
+                return <MovieDisplay />
+              }
+            }}
           />
           <Route
             path='/login'
             component={Login}
+          />
+          <Route
+            path='/signup'
+            component={Signup}
           />
         </Switch>
       </div>
@@ -39,11 +53,13 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  movies: state.movies
+  movies: state.movies,
+  user: state.user
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  loadMovies: (movies) => dispatch(loadMovies(movies))
+  loadMovies: (movies) => dispatch(loadMovies(movies)),
+  signOut: () => dispatch(signOut())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
