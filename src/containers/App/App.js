@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import MovieDisplay from '../MovieDisplay/MovieDisplay'
+import MovieDisplay from '../../Components/MovieDisplay/MovieDisplay'
 import { fetchData } from '../../utils/apiCalls'
 import { connect } from 'react-redux'
 import { loadMovies, signOut } from '../../actions/index'
 import './App.scss'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from '../Login/Login'
-import Signup from '../Signup/Signup'
+import Signup from '../../components/Signup/Signup'
 
 
 class App extends Component {
