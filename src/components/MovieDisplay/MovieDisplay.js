@@ -1,6 +1,7 @@
 import React from 'react'
 import MovieCard from '../MovieCard/MovieCard'
 import { uid } from 'react-uid'
+import './MovieDisplay.scss'
 
 const MovieDisplay = ({movies}) => {
   console.log(movies)
@@ -11,7 +12,7 @@ const MovieDisplay = ({movies}) => {
    })
 
   return(
-    <div>{moviesList}</div>
+    <div className="movies-container">{moviesList}</div>
   )
 }
 
