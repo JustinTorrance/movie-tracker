@@ -4,8 +4,10 @@ import { fetchData } from '../../utils/apiCalls'
 import { connect } from 'react-redux'
 import { loadMovies } from '../../actions/index'
 import './App.scss'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from '../Login/Login'
+import Signup from '../Signup/Signup'
+
 
 class App extends Component {
   constructor() {
@@ -18,6 +20,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <h1 className="movie-tracker">movie tracker</h1>
@@ -25,11 +28,21 @@ class App extends Component {
           <Route 
             exact
             path='/'
-            component={MovieDisplay}
+            render={() => {
+              if (!this.props.user.name) {
+                return <Redirect to='/login' />
+              } else {
+                return <MovieDisplay />
+              }
+            }}
           />
           <Route
             path='/login'
             component={Login}
+          />
+          <Route
+            path='/signup'
+            component={Signup}
           />
         </Switch>
       </div>
@@ -39,7 +52,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  movies: state.movies
+  movies: state.movies,
+  user: state.user
 })
 
 const mapDispatchToProps = (dispatch) => ({
