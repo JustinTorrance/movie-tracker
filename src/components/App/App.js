@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MovieDisplay from '../MovieDisplay/MovieDisplay'
 import { fetchData } from '../../utils/apiCalls'
 import { connect } from 'react-redux'
-import { loadMovies } from '../../actions/index'
+import { loadMovies, signOut } from '../../actions/index'
 import './App.scss'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from '../Login/Login'
@@ -20,16 +20,17 @@ class App extends Component {
   }
 
   render() {
-
+    const { user, signOut } = this.props
     return (
       <div className="App">
         <h1 className="movie-tracker">movie tracker</h1>
+        <button onClick={signOut}>Sign Out</button>
         <Switch>
           <Route 
             exact
             path='/'
             render={() => {
-              if (!this.props.user.name) {
+              if (!user.name) {
                 return <Redirect to='/login' />
               } else {
                 return <MovieDisplay />
@@ -57,7 +58,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  loadMovies: (movies) => dispatch(loadMovies(movies))
+  loadMovies: (movies) => dispatch(loadMovies(movies)),
+  signOut: () => dispatch(signOut())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

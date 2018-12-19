@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { fetchData } from '../../utils/apiCalls'
+import { addUser } from '../../utils/apiCalls'
 import { Redirect, Link } from 'react-router-dom'
+
 
 export default class Signup extends Component {
   constructor() {
@@ -25,14 +26,7 @@ export default class Signup extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const { name, email, password } = this.state
-    const response = await fetch('http://localhost:3000/api/users/new', {
-      method: 'POST',
-      body: JSON.stringify({ name, email, password }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const data = await response.json()
+    const data = await addUser('http://localhost:3000/api/users/new', { name, email, password }) 
     if (data.error) {
       this.setState({ duplicateUser: true })
     } else {

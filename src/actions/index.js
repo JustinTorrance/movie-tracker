@@ -8,7 +8,6 @@ export const signIn = (user) => ({
   user
 })
 
-export const signOut = (user) => ({
-  type: 'SIGN_OUT',
-  user
+export const signOut = () => ({
+  type: 'SIGN_OUT'
 })

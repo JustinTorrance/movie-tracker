@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fetchData } from '../../utils/apiCalls'
 import { Redirect, Link } from 'react-router-dom'
-import { signIn } from '../../actions/index.js'
+import { signIn, signOut } from '../../actions/index.js'
 import { connect } from 'react-redux'
 
 export class Login extends Component {
