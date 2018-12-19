@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MovieDisplayContainer from '../../containers/MovieDisplayContainer'
 import { fetchMovies } from '../../utils/apiCalls'
 import './App.scss'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -16,8 +17,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <MovieDisplayContainer />
       </div>
+
     )
   }
 }
