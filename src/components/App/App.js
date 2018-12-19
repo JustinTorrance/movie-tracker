@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import MovieDisplayContainer from '../../containers/MovieDisplayContainer'
+import { fetchMovies } from '../../utils/apiCalls'
+import './App.scss'
 
 class App extends Component {
+  constructor() {
+    super()
+  }
+
+  async componentDidMount() {
+    const movies = await fetchMovies('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
+    this.props.loadMovies(movies)
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <MovieDisplayContainer />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
