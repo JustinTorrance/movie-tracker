@@ -55,7 +55,7 @@ export default class Signup extends Component {
       <div className="sign-up-container">
         <h1 className='form-title'>
           movie
-          <img alt='./images/movie_roll.svg' rel="movie roll" className='form-logo'></img>
+          <img src='./images/movie_roll.svg' alt="movie roll" className='form-logo'></img>
           tracker
         </h1>
         <h2 className='login-title'>Sign Up</h2>
