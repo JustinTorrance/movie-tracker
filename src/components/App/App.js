@@ -9,7 +9,7 @@ import Login from '../Login/Login'
 import Signup from '../Signup/Signup'
 
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
   }
@@ -52,12 +52,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies,
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loadMovies: (movies) => dispatch(loadMovies(movies)),
   signOut: () => dispatch(signOut())
 })
