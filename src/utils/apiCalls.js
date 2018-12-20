@@ -23,3 +23,15 @@ export const addUser = async (user) => {
     throw new Error()
   }
 }
+
+export const loginUser = async (user) => {
+    const response = await fetch("http://localhost:3000/api/users/", {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const data = await response.json()
+    return data 
+}

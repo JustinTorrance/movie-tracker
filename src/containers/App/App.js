@@ -4,7 +4,7 @@ import { fetchData } from '../../utils/apiCalls'
 import { connect } from 'react-redux'
 import { loadMovies } from '../../actions/index'
 import './App.scss'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import Login from '../Login/Login'
 import Signup from '../../components/Signup/Signup'
 import { PropTypes } from 'prop-types'
@@ -29,6 +29,7 @@ export class App extends Component {
             exact
             path='/'
             render={() => {
+              console.log(user)
               if (!user.name) {
                 return <Redirect to='/login' />
               } else {
@@ -66,5 +67,5 @@ App.propTypes = {
   loadMovies: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
 
