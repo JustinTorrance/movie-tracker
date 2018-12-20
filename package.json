@@ -24,7 +24,8 @@
       "src/**/*.{js,jsx}",
       "!src/index.js",
       "!src/serviceWorker.js",
-      "!src/reducers/index.js"
+      "!src/reducers/index.js",
+      "!src/setupTests.js"
     ]
   },
   "eslintConfig": {

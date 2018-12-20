@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { fetchData } from '../../utils/apiCalls'
+import * as API from '../../utils/apiCalls'
 import { Redirect, Link } from 'react-router-dom'
 import { signIn } from '../../actions/index.js'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import { loginUser } from  '../../utils/apiCalls'
 
 export class Login extends Component {
   constructor() {
@@ -28,26 +27,12 @@ export class Login extends Component {
     e.preventDefault()
     const { email, password } = this.state
     try {
-      const user = await loginUser({email, password})
+      const user = await API.loginUser({email, password})
       this.props.loginUser({name: user.data.name, password: user.data.password})
       this.setState({validUser: true})
     } catch (error) {
       this.setState({incorrectLogin: true})
     }
-
-    // const users = await fetchData('http://localhost:3000/api/users')
-    // let validUser = false
-    // const currentUser = users.data.find(user => {
-    //   if (user.email === email && user.password === password) {
-    //     validUser = true
-    //     return user
-    //   } 
-    // })
-    
-    // if (validUser) {
-    //   this.props.loginUser(currentUser)
-    // }
-    // this.setState({validUser, incorrectLogin: !validUser})
   }
 
   render() {
@@ -67,7 +52,7 @@ export class Login extends Component {
         <h2 className='login-title'>Login</h2>
         <form className='login-form' onSubmit={this.handleSubmit}>
           <input 
-            className='form-input'
+            className='form-input email'
             type='text' 
             placeholder='email' 
             value={email} 
@@ -75,7 +60,7 @@ export class Login extends Component {
             onChange={this.handleChange}>
           </input>
           <input 
-            className='form-input'
+            className='form-input password'
             type='password' 
             placeholder='password' 
             value={password}
@@ -85,7 +70,7 @@ export class Login extends Component {
           <button>Login</button>
         </form>
         <div className='new-account-container'>
-          <h3 className='incorrect-login'>username or password is incorrect</h3>
+          <h3 className={`incorrect-login ${incorrectLogin && 'incorrect'}`}>username or password is incorrect</h3>
           <h3>Don't have an account?</h3>
           <Link className='form-link' to='/signup' >Create New Account</Link>
         </div>

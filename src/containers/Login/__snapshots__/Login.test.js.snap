@@ -41,7 +41,7 @@ ShallowWrapper {
           onSubmit={[Function]}
         >
           <input
-            className="email form-input false"
+            className="form-input email"
             name="email"
             onChange={[Function]}
             placeholder="email"
@@ -49,7 +49,7 @@ ShallowWrapper {
             value=""
           />
           <input
-            className="password form-input false"
+            className="form-input password"
             name="password"
             onChange={[Function]}
             placeholder="password"
@@ -138,7 +138,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <input
-              className="email form-input false"
+              className="form-input email"
               name="email"
               onChange={[Function]}
               placeholder="email"
@@ -146,7 +146,7 @@ ShallowWrapper {
               value=""
             />,
             <input
-              className="password form-input false"
+              className="form-input password"
               name="password"
               onChange={[Function]}
               placeholder="password"
@@ -167,7 +167,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "className": "email form-input false",
+              "className": "form-input email",
               "name": "email",
               "onChange": [Function],
               "placeholder": "email",
@@ -183,7 +183,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "className": "password form-input false",
+              "className": "form-input password",
               "name": "password",
               "onChange": [Function],
               "placeholder": "password",
@@ -305,7 +305,7 @@ ShallowWrapper {
             onSubmit={[Function]}
           >
             <input
-              className="email form-input false"
+              className="form-input email"
               name="email"
               onChange={[Function]}
               placeholder="email"
@@ -313,7 +313,7 @@ ShallowWrapper {
               value=""
             />
             <input
-              className="password form-input false"
+              className="form-input password"
               name="password"
               onChange={[Function]}
               placeholder="password"
@@ -402,7 +402,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <input
-                className="email form-input false"
+                className="form-input email"
                 name="email"
                 onChange={[Function]}
                 placeholder="email"
@@ -410,7 +410,7 @@ ShallowWrapper {
                 value=""
               />,
               <input
-                className="password form-input false"
+                className="form-input password"
                 name="password"
                 onChange={[Function]}
                 placeholder="password"
@@ -431,7 +431,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "className": "email form-input false",
+                "className": "form-input email",
                 "name": "email",
                 "onChange": [Function],
                 "placeholder": "email",
@@ -447,7 +447,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "className": "password form-input false",
+                "className": "form-input password",
                 "name": "password",
                 "onChange": [Function],
                 "placeholder": "password",

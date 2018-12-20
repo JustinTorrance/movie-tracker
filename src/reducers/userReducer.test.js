@@ -4,7 +4,7 @@ import * as actions from '../actions'
 describe('userReducer', () => {
 
   it('should return the default state', () => {
-    const expected = {}
+    const expected = {name: null}
     const result = userReducer(undefined, {})
     expect(result).toEqual(expected)
   })
