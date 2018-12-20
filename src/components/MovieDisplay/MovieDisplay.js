@@ -4,7 +4,6 @@ import MovieCard from '../MovieCard/MovieCard'
 import { uid } from 'react-uid'
 import { signOut } from '../../actions/index'
 import { PropTypes } from 'prop-types'
-import './MovieDisplay.scss'
 
 export const MovieDisplay = ({movies, signOut}) => {
    const moviesList = movies.map((movie) => {
@@ -14,11 +13,17 @@ export const MovieDisplay = ({movies, signOut}) => {
    })
 
   return(
-    <section className="movies-container">
+    <section className="movies-section-container">
       <header className='movies-header'>
-        <h1 className="movie-tracker">movie tracker</h1>
-        <button onClick={signOut}>Sign Out</button>
+        <h1 className="movie-tracker">     
+          movie
+          <img src='./images/movie_roll.svg' alt="movie roll" className='main-logo'></img>
+          tracker
+        </h1>
+        <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
       </header>
+      <h2 className='movie-container-label'>Trending</h2>
+      <div className='movie-container-underline'></div>
       <div className="movies-container">{moviesList}</div>
     </section>
   )

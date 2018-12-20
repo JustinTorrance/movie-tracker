@@ -6,6 +6,7 @@ $regular-font: 'Raleway', sans-serif;
 
 @import '../Login/login';
 @import '../../components/Signup/signup';
+@import '../../components/MovieDisplay/movieDisplay';
 
 body {
   background-image: url('../../utils/images/app_background.png');
@@ -13,11 +14,4 @@ body {
   background-position: fixed;
   background-blend-mode: overlay;
   background-color: rgba(0, 0, 0, 0.822)
-}
-
-.movie-tracker {
-  color: $color-blue;
-  font-family: $title-font;
-  font-size: 80px;
-  margin: 10px;
 }
