@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDisplay Should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    movies={
+      Array [
+        Object {
+          "backdropPic": "https://image.tmdb.org/t/p/w500///",
+          "genres": "drama",
+          "id": 1,
+          "overview": "great movie",
+          "posterPic": "https://image.tmdb.org/t/p/w500///",
+          "rating": 9,
+          "runtime": 50,
+          "title": "Titanic",
+          "year": 1999,
+        },
+      ]
+    }
+    signOut={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <header
+          className="movies-header"
+        >
+          <h1
+            className="movie-tracker"
+          >
+            movie tracker
+          </h1>
+          <button
+            onClick={[MockFunction]}
+          >
+            Sign Out
+          </button>
+        </header>,
+        <div
+          className="movies-container"
+        >
+          <MovieCard
+            movie={
+              Object {
+                "backdropPic": "https://image.tmdb.org/t/p/w500///",
+                "genres": "drama",
+                "id": 1,
+                "overview": "great movie",
+                "posterPic": "https://image.tmdb.org/t/p/w500///",
+                "rating": 9,
+                "runtime": 50,
+                "title": "Titanic",
+                "year": 1999,
+              }
+            }
+          />
+        </div>,
+      ],
+      "className": "movies-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1
+              className="movie-tracker"
+            >
+              movie tracker
+            </h1>,
+            <button
+              onClick={[MockFunction]}
+            >
+              Sign Out
+            </button>,
+          ],
+          "className": "movies-header",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "movie tracker",
+              "className": "movie-tracker",
+            },
+            "ref": null,
+            "rendered": "movie tracker",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sign Out",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": "Sign Out",
+            "type": "button",
+          },
+        ],
+        "type": "header",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <MovieCard
+              movie={
+                Object {
+                  "backdropPic": "https://image.tmdb.org/t/p/w500///",
+                  "genres": "drama",
+                  "id": 1,
+                  "overview": "great movie",
+                  "posterPic": "https://image.tmdb.org/t/p/w500///",
+                  "rating": 9,
+                  "runtime": 50,
+                  "title": "Titanic",
+                  "year": 1999,
+                }
+              }
+            />,
+          ],
+          "className": "movies-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "uid1",
+            "nodeType": "function",
+            "props": Object {
+              "movie": Object {
+                "backdropPic": "https://image.tmdb.org/t/p/w500///",
+                "genres": "drama",
+                "id": 1,
+                "overview": "great movie",
+                "posterPic": "https://image.tmdb.org/t/p/w500///",
+                "rating": 9,
+                "runtime": 50,
+                "title": "Titanic",
+                "year": 1999,
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <header
+            className="movies-header"
+          >
+            <h1
+              className="movie-tracker"
+            >
+              movie tracker
+            </h1>
+            <button
+              onClick={[MockFunction]}
+            >
+              Sign Out
+            </button>
+          </header>,
+          <div
+            className="movies-container"
+          >
+            <MovieCard
+              movie={
+                Object {
+                  "backdropPic": "https://image.tmdb.org/t/p/w500///",
+                  "genres": "drama",
+                  "id": 1,
+                  "overview": "great movie",
+                  "posterPic": "https://image.tmdb.org/t/p/w500///",
+                  "rating": 9,
+                  "runtime": 50,
+                  "title": "Titanic",
+                  "year": 1999,
+                }
+              }
+            />
+          </div>,
+        ],
+        "className": "movies-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="movie-tracker"
+              >
+                movie tracker
+              </h1>,
+              <button
+                onClick={[MockFunction]}
+              >
+                Sign Out
+              </button>,
+            ],
+            "className": "movies-header",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "movie tracker",
+                "className": "movie-tracker",
+              },
+              "ref": null,
+              "rendered": "movie tracker",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign Out",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": "Sign Out",
+              "type": "button",
+            },
+          ],
+          "type": "header",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <MovieCard
+                movie={
+                  Object {
+                    "backdropPic": "https://image.tmdb.org/t/p/w500///",
+                    "genres": "drama",
+                    "id": 1,
+                    "overview": "great movie",
+                    "posterPic": "https://image.tmdb.org/t/p/w500///",
+                    "rating": 9,
+                    "runtime": 50,
+                    "title": "Titanic",
+                    "year": 1999,
+                  }
+                }
+              />,
+            ],
+            "className": "movies-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "uid1",
+              "nodeType": "function",
+              "props": Object {
+                "movie": Object {
+                  "backdropPic": "https://image.tmdb.org/t/p/w500///",
+                  "genres": "drama",
+                  "id": 1,
+                  "overview": "great movie",
+                  "posterPic": "https://image.tmdb.org/t/p/w500///",
+                  "rating": 9,
+                  "runtime": 50,
+                  "title": "Titanic",
+                  "year": 1999,
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
