@@ -8,9 +8,9 @@ export const fetchData = async (url) => {
   }
 }
 
-export const addUser = async (url, user) => {
+export const addUser = async (user) => {
   try {
-    const response = await fetch(url, {
+    const response = await fetch("http://localhost:3000/api/users/new", {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {

@@ -48,7 +48,7 @@ describe('App', () => {
       const mockDispatch = jest.fn()
       const actionToDispatch = signOut()
       const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.signOut()
+      mappedProps.onClick()
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
 
@@ -67,7 +67,7 @@ describe('App', () => {
       const mockDispatch = jest.fn()
       const actionToDispatch = loadMovies(mockMovie)
       const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.loadMovies(mockMovie)
+      mappedProps.componentDidMount(mockMovie)
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
 
     })
