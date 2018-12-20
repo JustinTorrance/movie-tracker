@@ -11,3 +11,8 @@ export const signIn = (user) => ({
 export const signOut = () => ({
   type: 'SIGN_OUT'
 })
+
+export const loadFavorites = (favorites) => ({
+  type: 'LOAD_FAVORITES',
+  favorites
+})

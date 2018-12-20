@@ -28,7 +28,7 @@ export class Login extends Component {
     const { email, password } = this.state
     try {
       const user = await API.loginUser({email, password})
-      this.props.loginUser({name: user.data.name, password: user.data.password})
+      this.props.loginUser({name: user.data.name, password: user.data.password, id: user.data.id})
       this.setState({validUser: true})
     } catch (error) {
       this.setState({incorrectLogin: true})
