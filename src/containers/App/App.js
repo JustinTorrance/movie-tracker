@@ -10,7 +10,7 @@ import Signup from '../../components/Signup/Signup'
 import { PropTypes } from 'prop-types'
 
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
   }
