@@ -29,7 +29,7 @@ export default class Signup extends Component {
   checkFormCompletion() {
     const { name, email, password, confirmPassword } = this.state
     this.setState({
-      formComplete: (name, email, password, confirmPassword)
+      formComplete: (name !== '' && email !== '' && password !== '' && confirmPassword !== '')
     })
   }
 
