@@ -47,9 +47,15 @@ describe('API', () => {
           "Content-Type": "application/json"
         }
       }
-    
       await API.addUser(mockUser)
       expect(window.fetch).toHaveBeenCalledWith(expected1, expected2)
+    })
+
+    it('should throw an error when the fetch fails', async () => {
+      const mockUser = { name: 'Ashley', email: 'ashley@gmail.com', password: 'ashley' }
+      window.fetch = () => Promise.resolve({ ok: false });
+      const expected = Error();
+      expect(API.addUser(mockUser)).rejects.toEqual(expected);
     })
   })
   
