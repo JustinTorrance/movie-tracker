@@ -1,15 +1,24 @@
 import { mapStateToProps, mapDispatchToProps } from './App'
 import { loadMovies } from '../../actions/index'
 import { shallow } from 'enzyme'
-import App from './App'
+import { App } from './App'
 import React from 'react'
 
 describe('App', () => {
 
   describe('App component', () => {
+    const mockMovies = []
+    let mockUser = {name: 'jake', email:'jake', password:'jake'}
+    const mockLoadMovies = jest.fn()
+    
 
     it('Should match the snapshot', () => {
-      const wrapper = shallow(<App />)
+      const wrapper = shallow(<App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}/>)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('Should match the snapshot if rendering redirect', () => {
+      const wrapper = shallow(<App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}/>)
       expect(wrapper).toMatchSnapshot()
     })
 
