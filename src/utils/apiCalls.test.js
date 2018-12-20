@@ -40,8 +40,7 @@ describe('API', () => {
       })
       const mockUser = { name: 'Ashley', email: 'ashley@gmail.com', password: 'ashley'}
       const expected1 = "http://localhost:3000/api/users/new"
-      const expected2 =
-      {
+      const expected2 = {
         method: "POST",
         body: JSON.stringify(mockUser),
         headers: {
