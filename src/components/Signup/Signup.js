@@ -40,7 +40,7 @@ export default class Signup extends Component {
       this.setState({ duplicateUser: false, passwordsMatch: false })
       return
     }
-    const data = await addUser('http://localhost:3000/api/users/new', { name, email, password }) 
+    const data = await addUser({ name, email, password }) 
     if (data.error) {
       this.setState({ duplicateUser: true, passwordsMatch: true})
     } else {

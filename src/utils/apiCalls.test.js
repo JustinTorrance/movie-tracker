@@ -30,19 +30,27 @@ describe('API', () => {
 
   describe('addUser', () => {
     it('calls fetch with the correct data when adding a new user', async () => {
-      const mockUser = { name: 'Ashley', email: 'Ashley@gmail.com', password: 'ashley'}
-      const expected = (
-      "http://localhost:3000/api/users/new", 
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          json: () => {
+            return Promise.resolve()
+          },
+          ok: true
+        })
+      })
+      const mockUser = { name: 'Ashley', email: 'ashley@gmail.com', password: 'ashley'}
+      const expected1 = "http://localhost:3000/api/users/new"
+      const expected2 =
       {
         method: "POST",
         body: JSON.stringify(mockUser),
         headers: {
           "Content-Type": "application/json"
         }
-      })
+      }
     
       await API.addUser(mockUser)
-      expect(window.fetch).toHaveBeenCalledWith(expected)
+      expect(window.fetch).toHaveBeenCalledWith(expected1, expected2)
     })
   })
   
