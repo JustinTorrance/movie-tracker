@@ -1,0 +1,58 @@
+.movie-tracker {
+  color: $color-blue;
+  font-family: $title-font;
+  font-size: 80px;
+  margin: 0px 30px 25px;
+}
+
+.main-logo {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  bottom: -4px;
+}
+
+.sign-out-btn {
+  background-color: #2D333B;
+  border: 2px solid $color-blue;
+  border-radius: 18px;
+  color: #B7B7B7;
+  position: absolute;
+  font-family: $regular-font;
+  font-size: 1.1em;
+  padding: 6px 8px;
+  top: 25px;
+  right: 30px;
+  transition: all .3s ease;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(22, 131, 194);
+    border-color: #2D333B
+  }
+}
+
+.movie-container-label {
+  font-family: $regular-font;
+  font-weight: 300;
+  color: white;
+  font-size: 3em;
+  margin: 5px 30px;
+}
+
+.movie-container-underline { 
+  background-color: white;
+  height: 2px;
+  width: 95%;
+  margin: 10px 30px;
+}
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 254px);
+  grid-gap: 20px;
+  justify-content: space-between;
+  margin: 30px auto;
+  width: calc(100% - 60px)
+}
