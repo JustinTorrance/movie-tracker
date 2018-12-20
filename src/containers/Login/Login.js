@@ -58,7 +58,7 @@ export class Login extends Component {
         <h2 className='login-title'>Login</h2>
         <form className='login-form' onSubmit={this.handleSubmit}>
           <input 
-            className={`form-input ${incorrectLogin && 'incorrect'}`}
+            className='form-input'
             type='text' 
             placeholder='email' 
             value={email} 
@@ -66,7 +66,7 @@ export class Login extends Component {
             onChange={this.handleChange}>
           </input>
           <input 
-            className={`form-input ${incorrectLogin && 'incorrect'}`}
+            className='form-input'
             type='password' 
             placeholder='password' 
             value={password}
@@ -76,7 +76,7 @@ export class Login extends Component {
           <button>Login</button>
         </form>
         <div className='new-account-container'>
-          <h3 className={`incorrect-login ${incorrectLogin && 'incorrect'}`}>username or password is incorrect</h3>
+          <h3 className='incorrect-login'>username or password is incorrect</h3>
           <h3>Don't have an account?</h3>
           <Link className='form-link' to='/signup' >Create New Account</Link>
         </div>
