@@ -36,11 +36,13 @@ export default class Signup extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const { name, email, password, confirmPassword } = this.state
+    if (password !== confirmPassword) {
+      this.setState({ duplicateUser: false, passwordsMatch: false })
+      return
+    }
     const data = await addUser('http://localhost:3000/api/users/new', { name, email, password }) 
     if (data.error) {
-      this.setState({ duplicateUser: true })
-    } else if (password !== confirmPassword) {
-      this.setState({ passwordsMatch: false })
+      this.setState({ duplicateUser: true, passwordsMatch: true})
     } else {
       this.setState({ validUser: true})
     }
