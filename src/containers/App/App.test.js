@@ -1,5 +1,5 @@
 import { mapStateToProps, mapDispatchToProps } from './App'
-import { signOut, loadMovies } from '../../actions/index'
+import { loadMovies } from '../../actions/index'
 import { shallow } from 'enzyme'
 import App from './App'
 import React from 'react'
@@ -9,7 +9,7 @@ describe('App', () => {
   describe('App component', () => {
 
     it('Should match the snapshot', () => {
-      wrapper = shallow(<App />)
+      const wrapper = shallow(<App />)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -56,13 +56,7 @@ describe('App', () => {
   })
   
   describe('mapDispatchToProps', () => {
-    it('calls disptach with a signOut', () => {
-      const mockDispatch = jest.fn()
-      const actionToDispatch = signOut()
-      const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.signOut()
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-    })
+
 
     it('calls dispatch with a loadMovies action', () => {
       const mockMovie = {

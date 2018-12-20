@@ -6,7 +6,7 @@ import { signOut } from '../../actions/index'
 import { PropTypes } from 'prop-types'
 import './MovieDisplay.scss'
 
-const MovieDisplay = ({movies, signOut}) => {
+export const MovieDisplay = ({movies, signOut}) => {
    const moviesList = movies.map((movie) => {
      return (
        <MovieCard movie={movie} key={uid(movie)}/>
@@ -24,11 +24,11 @@ const MovieDisplay = ({movies, signOut}) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOut())
 })
 
