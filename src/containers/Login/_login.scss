@@ -1,4 +1,125 @@
-.incorrect {
-  background-color: red;
+::placeholder {
+  color: rgb(182, 182, 182);
+}
+
+.form-title {
+  color: $color-blue;
+  font-family: $title-font;
+  font-size: 3.8em;
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.form-logo {
+  height: 40px;
+  position: relative;
+  bottom: -3px;
+  width: 40px;
+}
+
+.login-title {
+  font-family: $regular-font;
+  font-weight: 300;
+  color: white;
+  font-size: 4em;
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
+  margin: 10px auto;
+
+  input {
+    background-color: rgb(68, 68, 68);
+    color: white;
+    margin: 10px;
+    height: 30px;
+    border: 2px solid $color-blue;
+    border-radius: 4px;
+    font-family: $regular-font;
+    font-size: 1.3em;
+    font-weight: 300;
+    text-align: center;
+    width: 100%;
+  }
+
+  .incorrect {
+    background-color: rgb(187, 95, 95);
+    color: white;
+  }
+
+  button {
+    background-color: rgb(42, 133, 168);
+    color: white;
+    border: 2px solid rgb(68, 68, 68);
+    border-radius: 4px;
+    height: 40px;
+    margin: 15px auto 0px;
+    font-family: $regular-font;
+    font-size: 1.3em;
+    width: 101%;
+    transition: all .4s ease;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-blue;
+      background-color: rgb(48, 48, 48);
+      transform: scale(1.01)
+    }
+  }
+}
+
+.new-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $regular-font;
+  font-size: 1.2em;
+  font-weight: 300;
+  width: 320px;
+  margin: 20px auto;
+
+  h3 {
+    text-align: center;
+    color: white;
+    margin: 5px;
+  }
+
+  .incorrect-login {
+    display: none;
+    font-weight: 300;
+    font-size: 1em;
+    margin: 15px auto;
+  }
   
+  .incorrect {
+    display: block;
+    color: rgb(231, 40, 40)
+  }
+}
+
+.form-link {
+  color: $color-blue;
+  text-align: center;
+  transition: all .4s ease;
+  text-decoration: none;
+  font-family: $regular-font;
+  font-size: 1.2em;
+  font-weight: 300;
+  width: 320px;
+  margin: 20px auto;
+
+  &:visited {
+    color: $color-blue
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

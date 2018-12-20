@@ -11,14 +11,14 @@ export class Login extends Component {
       email: '',
       password: '',
       validUser: false,
-      incorrectPassword: false
+      incorrectLogin: false
     }
   }
 
   handleChange = (e) => {
     const { value, name } = e.target
     this.setState({
-      [name]: value
+      [name]: value,
     })
   }
 
@@ -37,7 +37,7 @@ export class Login extends Component {
     if (validUser) {
       this.props.loginUser(currentUser)
     }
-    this.setState({validUser, incorrectPassword: !validUser})
+    this.setState({validUser, incorrectLogin: !validUser})
   }
 
   render() {
@@ -46,12 +46,18 @@ export class Login extends Component {
         <Redirect to='/' />
       )
     }
-    const { email, password, incorrectPassword } = this.state
+    const { email, password, incorrectLogin } = this.state
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <h1 className='form-title'>
+          movie
+          <img src='./images/movie_roll.svg' alt="movie roll" className='form-logo'></img>
+          tracker
+        </h1>
+        <h2 className='login-title'>Login</h2>
+        <form className='login-form' onSubmit={this.handleSubmit}>
           <input 
-            className={`form-input ${incorrectPassword && 'incorrect'}`}
+            className={`form-input ${incorrectLogin && 'incorrect'}`}
             type='text' 
             placeholder='email' 
             value={email} 
@@ -59,7 +65,7 @@ export class Login extends Component {
             onChange={this.handleChange}>
           </input>
           <input 
-            className={`form-input ${incorrectPassword && 'incorrect'}`}
+            className={`form-input ${incorrectLogin && 'incorrect'}`}
             type='password' 
             placeholder='password' 
             value={password}
@@ -68,9 +74,11 @@ export class Login extends Component {
           </input>
           <button>Login</button>
         </form>
-        <Link to='/signup' >
-          <button>Create Account</button>
-        </Link>
+        <div className='new-account-container'>
+          <h3 className={`incorrect-login ${incorrectLogin && 'incorrect'}`}>username or password is incorrect</h3>
+          <h3>Don't have an account?</h3>
+          <Link className='form-link' to='/signup' >Create New Account</Link>
+        </div>
       </div>
     )
   }

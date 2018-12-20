@@ -1,7 +1,19 @@
-@import '../Login/login';
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500');
 
 $color-blue: #64d5f8; 
 $title-font: 'Squada One', cursive;
+$regular-font: 'Raleway', sans-serif;
+
+@import '../Login/login';
+@import '../../components/Signup/signup';
+
+body {
+  background-image: url('../../utils/images/app_background.png');
+  background-size: cover;
+  background-position: fixed;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.822)
+}
 
 .movie-tracker {
   color: $color-blue;
