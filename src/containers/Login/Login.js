@@ -3,6 +3,7 @@ import { fetchData } from '../../utils/apiCalls'
 import { Redirect, Link } from 'react-router-dom'
 import { signIn } from '../../actions/index.js'
 import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types'
 
 export class Login extends Component {
   constructor() {
@@ -87,5 +88,9 @@ export class Login extends Component {
 export const mapDispatchToProps = (dispatch) => ({ 
   loginUser: (user) => dispatch(signIn(user))
 })
+
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired
+}
 
 export default connect(null, mapDispatchToProps)(Login)

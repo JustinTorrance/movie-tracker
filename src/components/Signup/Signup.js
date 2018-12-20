@@ -94,13 +94,6 @@ export default class Signup extends Component {
         <h3 className={`duplicate-user-message ${duplicateUser && 'create-user-error'}`}>An account already exists with that email</h3>
         <h3 className={`passwords-message ${!passwordsMatch && 'create-user-error'}`}>Passwords must match</h3>
       </div>
-
-      )
+    )
   }
-
-
-
-
-
-
 }

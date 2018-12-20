@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import MovieCard from '../MovieCard/MovieCard'
 import { uid } from 'react-uid'
 import { signOut } from '../../actions/index'
+import { PropTypes } from 'prop-types'
 import './MovieDisplay.scss'
 
 const MovieDisplay = ({movies, signOut}) => {
@@ -30,5 +31,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOut())
 })
+
+MovieDisplay.propTypes = {
+  movies: PropTypes.array.isRequired,
+  signOut: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDisplay)

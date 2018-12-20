@@ -1,5 +1,6 @@
 import React from 'react'
 import './MovieCard.scss'
+import { PropTypes } from 'prop-types'
 
 const MovieCard = ({movie}) => {
   return (
@@ -13,6 +14,10 @@ const MovieCard = ({movie}) => {
       <p>{movie.runtime}</p> */}
     </article>
   )
+}
+
+MovieCard.propTypes = {
+  movie: PropTypes.object.isRequired
 }
 
 export default MovieCard
