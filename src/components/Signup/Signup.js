@@ -36,11 +36,13 @@ export default class Signup extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const { name, email, password, confirmPassword } = this.state
+    if (password !== confirmPassword) {
+      this.setState({ duplicateUser: false, passwordsMatch: false })
+      return
+    }
     const data = await addUser('http://localhost:3000/api/users/new', { name, email, password }) 
     if (data.error) {
-      this.setState({ duplicateUser: true })
-    } else if (password !== confirmPassword) {
-      this.setState({ passwordsMatch: false })
+      this.setState({ duplicateUser: true, passwordsMatch: true})
     } else {
       this.setState({ validUser: true})
     }
@@ -55,7 +57,7 @@ export default class Signup extends Component {
       <div className="sign-up-container">
         <h1 className='form-title'>
           movie
-          <img alt='./images/movie_roll.svg' rel="movie roll" className='form-logo'></img>
+          <img src='./images/movie_roll.svg' alt="movie roll" className='form-logo'></img>
           tracker
         </h1>
         <h2 className='login-title'>Sign Up</h2>
@@ -94,13 +96,6 @@ export default class Signup extends Component {
         <h3 className={`duplicate-user-message ${duplicateUser && 'create-user-error'}`}>An account already exists with that email</h3>
         <h3 className={`passwords-message ${!passwordsMatch && 'create-user-error'}`}>Passwords must match</h3>
       </div>
-
-      )
+    )
   }
-
-
-
-
-
-
 }

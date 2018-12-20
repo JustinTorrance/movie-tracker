@@ -7,6 +7,7 @@ import './App.scss'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from '../Login/Login'
 import Signup from '../../components/Signup/Signup'
+import { PropTypes } from 'prop-types'
 
 
 class App extends Component {
@@ -50,13 +51,20 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies,
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loadMovies: (movies) => dispatch(loadMovies(movies)),
 })
 
+App.propTypes = {
+  movies: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired,
+  loadMovies: PropTypes.func.isRequired
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(App)
+
