@@ -2,6 +2,19 @@ import { Login, mapDispatchToProps } from './Login'
 import { signIn } from '../../actions'
 import React from 'react'
 import { shallow } from 'enzyme'
+import * as API from '../../utils/apiCalls'
+
+jest.mock('../../utils/apiCalls')
+
+beforeAll(() => {
+  API.loginUser.mockImplementation((email, password) => ({
+    data: {
+      name: 'Jake',
+      email: email,
+      password: password
+    }
+  }))
+})
 
 describe('Login Component', () => {
   let loginUserMock;
@@ -28,7 +41,6 @@ describe('Login Component', () => {
     const mockEvent = { target: { value: 'something@gmail.com' } }
     wrapper.find('.email').simulate('change', mockEvent)
     expect(spy).toHaveBeenCalled()
-    
   })
   
   it('calls handleChange when password is changed', () => {
@@ -54,6 +66,51 @@ describe('Login Component', () => {
     expect(spy).toHaveBeenCalled()
   })
   
+  describe('handleSubmit', () => {
+    const mockEvent = {preventDefault: jest.fn()}
+    let wrapper;
+    let loginUserMock;
+
+    beforeEach(() => {
+      loginUserMock = jest.fn()
+      wrapper = shallow(<Login loginUser={loginUserMock} />)
+      wrapper.state().email = 'ashley@gmail.com'
+      wrapper.state().password = 'jake'
+    })
+
+    it('Should login the user through the API', async () => {
+      const expected = {email: 'ashley@gmail.com', password: 'jake'}
+
+      await wrapper.instance().handleSubmit(mockEvent)
+      expect(API.loginUser).toHaveBeenCalledWith(expected)
+    })  
+
+    it('Should call login user from props', async () => {
+      const expected = {name: 'Jake', password: undefined}
+
+      await wrapper.instance().handleSubmit(mockEvent)
+      expect(loginUserMock).toHaveBeenCalledWith(expected)      
+    })
+
+    it('Should set valid user to true if everything is ok', async () => {
+      await wrapper.instance().handleSubmit(mockEvent)
+
+      const expected = true;
+
+      expect(wrapper.state().validUser).toBe(expected)
+    })
+
+    it('Should set incorrectlogin to true if there is an error', async () => {
+      API.loginUser.mockImplementation((email, password) => {throw new Error()})
+      
+      await wrapper.instance().handleSubmit(mockEvent)
+
+      const expected = true;
+
+      expect(wrapper.state().incorrectLogin).toBe(expected)
+    })
+  })
+
   describe('mapDispatchToProps', () => {
     it('calls dispatch with a signIn action when loginUser is called', () => {
       const mockDispatch = jest.fn()

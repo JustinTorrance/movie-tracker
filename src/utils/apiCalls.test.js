@@ -1,6 +1,4 @@
-import React from 'react'
 import * as API from './apiCalls'
-import { shallow } from 'enzyme'
 
 
 describe('API', () => {
@@ -59,4 +57,28 @@ describe('API', () => {
     })
   })
   
+  describe('loginUser', () => {
+
+    it('calls fetch with the correct data when logging in a user', async () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          json: () => {
+            return Promise.resolve()
+          },
+          ok: true
+        })
+      })
+      const mockUser = { name: 'Ashley', email: 'ashley@gmail.com', password: 'ashley'}
+      const expected1 = "http://localhost:3000/api/users/"
+      const expected2 = {
+        method: "POST",
+        body: JSON.stringify(mockUser),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+      await API.loginUser(mockUser)
+      expect(window.fetch).toHaveBeenCalledWith(expected1, expected2)
+    })
+  })
 })

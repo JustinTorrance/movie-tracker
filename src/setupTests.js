@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import { configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-
-configure({ adapter: new Adapter() })
-=======
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -28,4 +22,3 @@ class LocalStorage {
 global.localStorage = new LocalStorage();
 
 configure({ adapter: new Adapter() });
->>>>>>> Add input tests and refactor post request
