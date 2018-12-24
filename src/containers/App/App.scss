@@ -7,6 +7,7 @@ $regular-font: 'Raleway', sans-serif;
 @import '../Login/login';
 @import '../../components/Signup/signup';
 @import '../../components/MovieDisplay/movieDisplay';
+@import '../../components/MovieCard/movieCard';
 
 body {
   background-image: url('../../utils/images/app_background.png');

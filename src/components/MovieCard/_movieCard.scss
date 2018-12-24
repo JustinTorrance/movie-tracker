@@ -1,0 +1,104 @@
+.movie-card {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+  width: 250px;
+  margin: 5px;
+  transition: 0.3s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+
+  .dark-background {
+    background-color: rgb(40, 41, 53);
+    height: 400px;
+    width: 250px;
+    opacity: .03;
+    transition: all .3s ease;
+    position: absolute;
+  }
+
+  .movie-title-container {
+    color: white;
+    transform: translateY(-400px);
+    transition: all .3s ease;
+    margin: 8px 10px;
+  }
+
+  .overview {
+    color: white;
+    position: relative;
+    transform: translateY(400px);
+    transition: all .3s ease;
+    margin: 10px;
+    max-height: 200px;
+    overflow: scroll;
+  }
+
+  &:hover .dark-background {
+    cursor: pointer;
+    opacity: .90;
+  }
+
+  &:hover .overview {
+    transform: translateY(0px);
+  }
+
+  &:hover .movie-title-container {
+    transform: translateY(0px);
+  }
+}
+
+img {
+  width: 50px;
+  height: 100px;
+}
+
+.fa-star {
+  font-size: 1.9em;
+  padding: 8px;
+  transition: all .3s ease;
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+    color: gold;
+  }
+}
+
+.favorite {
+  color: gold;
+}
+
+.movie-title {
+  font-family: $regular-font;
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 10px;
+  max-width: 85%;
+  font-size: 2em;
+}
+
+.release-date-label,
+.rating-label {
+  display: inline-block;
+  font-weight: 300;
+  font-style: italic;  
+  margin: 5px auto;
+}
+
+.movie-release-date, 
+.movie-rating {
+  display: inline-block;
+  margin: 0px;
+  margin-left: 5px;
+  font-size: 1.2em;
+  font-family: $title-font;
+}
