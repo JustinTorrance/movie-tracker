@@ -29,7 +29,6 @@ export class App extends Component {
             exact
             path='/'
             render={() => {
-              console.log(user)
               if (!user.name) {
                 return <Redirect to='/login' />
               } else {

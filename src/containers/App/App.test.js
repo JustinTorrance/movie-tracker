@@ -1,11 +1,19 @@
 import { mapStateToProps, mapDispatchToProps } from './App'
 import { loadMovies } from '../../actions/index'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { App } from './App'
 import React from 'react'
-import { fetchData } from '../../utils/apiCalls';
+import { fetchData } from '../../utils/apiCalls'
+import { MemoryRouter } from 'react-router-dom'
+import MovieDisplay from '../../components/MovieDisplay/MovieDisplay'
+import Login from '../../containers/Login/Login'
+import Signup from '../../components/Signup/Signup'
+import { Provider } from 'react-redux'
 
 jest.mock('../../utils/apiCalls')
+jest.mock('../../components/MovieDisplay/MovieDisplay')
+jest.mock('../../components/Signup/Signup')
+jest.mock('../../containers/Login/Login')
 
 describe('App', () => {
   const mockMovies = [{
@@ -33,10 +41,6 @@ describe('App', () => {
     it('Should match the snapshot', () => {
       const wrapper = shallow(<App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}/>)
       expect(wrapper).toMatchSnapshot()
-    })
-
-    it('Should match the snapshot if rendering redirect', () => {
-
     })
 
     describe('ComponentDidMount', () => {
@@ -114,4 +118,58 @@ describe('App', () => {
     })
   })
 
+  describe('routes', () => {
+    const mockMovies = []
+    let mockUser = {name: 'jake', email:'jake', password:'jake'}
+    const mockLoadMovies = jest.fn()
+    const mockStore = {getState: jest.fn(), subscribe: jest.fn(), dispatch: jest.fn()}
+    
+    it('should render MoviesDisplay if at the base route', () => {
+      let wrapper = mount(
+      <Provider store={mockStore}>
+        <MemoryRouter initialEntries={['/']}>
+          <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+        </MemoryRouter>
+      </Provider>
+      )
+
+      expect(wrapper.find(MovieDisplay)).toHaveLength(1)
+    })
+
+    it('should render the Login component if at the /login route', () => {
+      let wrapper = mount(
+        <Provider store={mockStore}>
+          <MemoryRouter initialEntries={['/login']}>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+          </MemoryRouter>
+        </Provider>
+        )
+  
+        expect(wrapper.find(Login)).toHaveLength(1)
+    })
+
+    it('should redirect to the login route if no user is logged in', () => {
+      let wrapper = mount(
+        <Provider store={mockStore}>
+          <MemoryRouter initialEntries={['/']}>
+            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}></App>
+          </MemoryRouter>
+        </Provider>
+        )
+  
+        expect(wrapper.find(Login)).toHaveLength(1)
+    })
+
+    it('should render the Signup component if at the /signup route', () => {
+      let wrapper = mount(
+        <Provider store={mockStore}>
+          <MemoryRouter initialEntries={['/signup']}>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+          </MemoryRouter>
+        </Provider>
+        )
+  
+        expect(wrapper.find(Signup)).toHaveLength(1)
+    })
+  })
 })
