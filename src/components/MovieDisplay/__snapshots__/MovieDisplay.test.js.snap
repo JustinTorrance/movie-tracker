@@ -67,7 +67,7 @@ ShallowWrapper {
         <div
           className="movies-container"
         >
-          <MovieCard
+          <Connect(MovieCard)
             movie={
               Object {
                 "backdropPic": "https://image.tmdb.org/t/p/w500///",
@@ -197,7 +197,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <MovieCard
+            <Connect(MovieCard)
               movie={
                 Object {
                   "backdropPic": "https://image.tmdb.org/t/p/w500///",
@@ -220,7 +220,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": "uid1",
-            "nodeType": "function",
+            "nodeType": "class",
             "props": Object {
               "movie": Object {
                 "backdropPic": "https://image.tmdb.org/t/p/w500///",
@@ -283,7 +283,7 @@ ShallowWrapper {
           <div
             className="movies-container"
           >
-            <MovieCard
+            <Connect(MovieCard)
               movie={
                 Object {
                   "backdropPic": "https://image.tmdb.org/t/p/w500///",
@@ -413,7 +413,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <MovieCard
+              <Connect(MovieCard)
                 movie={
                   Object {
                     "backdropPic": "https://image.tmdb.org/t/p/w500///",
@@ -436,7 +436,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "uid1",
-              "nodeType": "function",
+              "nodeType": "class",
               "props": Object {
                 "movie": Object {
                   "backdropPic": "https://image.tmdb.org/t/p/w500///",
