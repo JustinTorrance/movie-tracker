@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './MovieCard.scss'
 import { PropTypes } from 'prop-types'
 import * as API from '../../utils/apiCalls'
 import { connect } from 'react-redux'
@@ -15,8 +14,9 @@ export class MovieCard extends Component {
   async componentDidMount() {
     const currentFavorites = await API.getFavorites(this.props.user_id)
     const found = currentFavorites.data.find((faveMovie) => {
-      return faveMovie.id === this.props.movie.id 
+      return faveMovie.movie_id === this.props.movie.id 
     })
+
     if (found) {
       this.setState({
         favorite: true
@@ -41,15 +41,17 @@ export class MovieCard extends Component {
   render() {
     const { movie } = this.props
     return (
-    <article className="movie-card" style={{ backgroundImage: `url(${movie.poster_path})` }}>
-    <button onClick={this.toggleFavorite}>Fav</button>
-      {/* <h2>{movie.title}</h2>
-      <p>{movie.year}</p>
-      <p>{movie.rating}</p> */}
-      {/* <img src={movie.backdropPic}/> */}
-      {/* <p>{movie.overview}</p>
-      <p>{movie.genres}</p>
-      <p>{movie.runtime}</p> */}
+    <article className='movie-card' style={{ backgroundImage: `url(${movie.poster_path})` }}>
+      <i  onClick={this.toggleFavorite} className={`fas fa-star ${this.state.favorite && 'favorite'}`}></i>    
+      <div className='dark-background'></div>
+      <div className='movie-title-container'>
+        <h2 className='movie-title'>{movie.title}</h2>
+        <p className='release-date-label'>Released:</p>
+        <p className='movie-release-date'>{movie.release_date}</p>
+        <p className='rating-label'>Avg. Rating:</p>
+        <p className='movie-rating'>{movie.vote_average}</p>
+      </div>
+      <p className='overview'>{movie.overview}</p>
     </article>
     )
   }

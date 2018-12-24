@@ -7,7 +7,6 @@ const moviesReducer = (state = [], action) => {
           release_date: movie.release_date,
           vote_average: movie.vote_average,
           poster_path: 'https://image.tmdb.org/t/p/w500///' + movie.poster_path,
-          backdrop_path: 'https://image.tmdb.org/t/p/w500///' + movie.backdrop_path,
           overview: movie.overview
         }
       }) 
