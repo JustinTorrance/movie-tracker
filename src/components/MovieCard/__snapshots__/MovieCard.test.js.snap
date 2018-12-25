@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieCard should match the snapshot with all data passed in correctly 1`] = `
+exports[`MovieCard MovieCard Component should match the snapshot with all data passed in correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Connect(MovieCard)
