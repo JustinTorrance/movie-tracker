@@ -25,13 +25,10 @@ describe('moviesReducer', () => {
     const expected = [{
       id: 1,
       title: 'fight club',
-      year: 2000,
-      rating: 9.1,
-      posterPic: 'https://image.tmdb.org/t/p/w500///' + undefined,
-      backdropPic: 'https://image.tmdb.org/t/p/w500///' + undefined,
-      overview: 'overview',
-      genres: 'action',
-      runtime: 127}]
+      release_date: 2000,
+      vote_average: 9.1,
+      poster_path: 'https://image.tmdb.org/t/p/w500///' + undefined,
+      overview: 'overview'}]
     const result = moviesReducer(initialState, actions.loadMovies(movies))
     expect(result).toEqual(expected)
   })
