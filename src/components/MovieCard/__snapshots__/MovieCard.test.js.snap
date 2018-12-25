@@ -3,7 +3,7 @@
 exports[`MovieCard MovieCard Component should match the snapshot with all data passed in correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(MovieCard)
+  Symbol(enzyme.__unrendered__): <MovieCard
     movie={
       Object {
         "backdropPic": "https://image.tmdb.org/t/p/w500///",
@@ -17,6 +17,7 @@ ShallowWrapper {
         "year": 1999,
       }
     }
+    user_id={1}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -29,59 +30,371 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "children": [Function],
-    },
-    "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "_calculateChangedBits": null,
-      "_context": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
-        },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": null,
-        "_currentValue2": null,
-        "_threadCount": 0,
+      "children": Array [
+        <i
+          className="fas fa-star false"
+          onClick={[Function]}
+        />,
+        <div
+          className="dark-background"
+        />,
+        <div
+          className="movie-title-container"
+        >
+          <h2
+            className="movie-title"
+          >
+            Titanic
+          </h2>
+          <p
+            className="release-date-label"
+          >
+            Released:
+          </p>
+          <p
+            className="movie-release-date"
+          />
+          <p
+            className="rating-label"
+          >
+            Avg. Rating:
+          </p>
+          <p
+            className="movie-rating"
+          />
+        </div>,
+        <p
+          className="overview"
+        >
+          great movie
+        </p>,
+      ],
+      "className": "movie-card",
+      "style": Object {
+        "backgroundImage": "url(undefined)",
       },
     },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "fas fa-star false",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "i",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "dark-background",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2
+              className="movie-title"
+            >
+              Titanic
+            </h2>,
+            <p
+              className="release-date-label"
+            >
+              Released:
+            </p>,
+            <p
+              className="movie-release-date"
+            />,
+            <p
+              className="rating-label"
+            >
+              Avg. Rating:
+            </p>,
+            <p
+              className="movie-rating"
+            />,
+          ],
+          "className": "movie-title-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Titanic",
+              "className": "movie-title",
+            },
+            "ref": null,
+            "rendered": "Titanic",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Released:",
+              "className": "release-date-label",
+            },
+            "ref": null,
+            "rendered": "Released:",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+              "className": "movie-release-date",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Avg. Rating:",
+              "className": "rating-label",
+            },
+            "ref": null,
+            "rendered": "Avg. Rating:",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+              "className": "movie-rating",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "great movie",
+          "className": "overview",
+        },
+        "ref": null,
+        "rendered": "great movie",
+        "type": "p",
+      },
+    ],
+    "type": "article",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "children": [Function],
-      },
-      "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "_calculateChangedBits": null,
-        "_context": Object {
-          "$$typeof": Symbol(react.context),
-          "Consumer": [Circular],
-          "Provider": Object {
-            "$$typeof": Symbol(react.provider),
-            "_context": [Circular],
-          },
-          "_calculateChangedBits": null,
-          "_currentRenderer": null,
-          "_currentRenderer2": null,
-          "_currentValue": null,
-          "_currentValue2": null,
-          "_threadCount": 0,
+        "children": Array [
+          <i
+            className="fas fa-star false"
+            onClick={[Function]}
+          />,
+          <div
+            className="dark-background"
+          />,
+          <div
+            className="movie-title-container"
+          >
+            <h2
+              className="movie-title"
+            >
+              Titanic
+            </h2>
+            <p
+              className="release-date-label"
+            >
+              Released:
+            </p>
+            <p
+              className="movie-release-date"
+            />
+            <p
+              className="rating-label"
+            >
+              Avg. Rating:
+            </p>
+            <p
+              className="movie-rating"
+            />
+          </div>,
+          <p
+            className="overview"
+          >
+            great movie
+          </p>,
+        ],
+        "className": "movie-card",
+        "style": Object {
+          "backgroundImage": "url(undefined)",
         },
       },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "fas fa-star false",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "i",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "dark-background",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h2
+                className="movie-title"
+              >
+                Titanic
+              </h2>,
+              <p
+                className="release-date-label"
+              >
+                Released:
+              </p>,
+              <p
+                className="movie-release-date"
+              />,
+              <p
+                className="rating-label"
+              >
+                Avg. Rating:
+              </p>,
+              <p
+                className="movie-rating"
+              />,
+            ],
+            "className": "movie-title-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Titanic",
+                "className": "movie-title",
+              },
+              "ref": null,
+              "rendered": "Titanic",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Released:",
+                "className": "release-date-label",
+              },
+              "ref": null,
+              "rendered": "Released:",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+                "className": "movie-release-date",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Avg. Rating:",
+                "className": "rating-label",
+              },
+              "ref": null,
+              "rendered": "Avg. Rating:",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+                "className": "movie-rating",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "great movie",
+            "className": "overview",
+          },
+          "ref": null,
+          "rendered": "great movie",
+          "type": "p",
+        },
+      ],
+      "type": "article",
     },
   ],
   Symbol(enzyme.__options__): Object {
