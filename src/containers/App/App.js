@@ -18,9 +18,11 @@ export class App extends Component {
   async componentDidMount() {
     const movies = await fetchData('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
     this.props.loadMovies(movies)
+    
   }
 
   render() {
+    console.log(this.movies)
     const { user } = this.props
     return (
       <div className="App">
@@ -43,6 +45,10 @@ export class App extends Component {
           <Route
             path='/signup'
             component={Signup}
+          />
+          <Route
+            path='/favorites'
+            component={MovieDisplay}
           />
         </Switch>
       </div>

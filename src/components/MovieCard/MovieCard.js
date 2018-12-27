@@ -16,7 +16,6 @@ export class MovieCard extends Component {
     const found = currentFavorites.data.find((faveMovie) => {
       return faveMovie.movie_id === this.props.movie.id 
     })
-
     if (found) {
       this.setState({
         favorite: true
