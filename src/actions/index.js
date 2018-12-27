@@ -12,7 +12,7 @@ export const signOut = () => ({
   type: 'SIGN_OUT'
 })
 
-export const loadingReducer = (bool) => ({
+export const loading = (bool) => ({
   type: 'IS_LOADING',
   bool
 })
