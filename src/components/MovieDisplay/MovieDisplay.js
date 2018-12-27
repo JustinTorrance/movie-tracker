@@ -30,7 +30,7 @@ export class MovieDisplay extends Component {
   }
 
   render() {
-    const { movies, user_id } = this.props
+    const { movies, signOut } = this.props
     let renderedMovies = movies
     if(this.state.favorites) {
       renderedMovies = this.state.favoriteMovies

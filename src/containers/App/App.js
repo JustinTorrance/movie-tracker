@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import MovieDisplay from '../../components/MovieDisplay/MovieDisplay'
-import { fetchData } from '../../utils/apiCalls'
+// import { fetchData } from '../../utils/apiCalls'
 import { connect } from 'react-redux'
-import { loadMovies } from '../../actions/index'
+// import { loadMovies } from '../../actions/index'
+import { fetchMovies } from '../../thunks/fetchMovies'
 import './App.scss'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import Login from '../Login/Login'
@@ -16,13 +17,10 @@ export class App extends Component {
   }
 
   async componentDidMount() {
-    const movies = await fetchData('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
-    this.props.loadMovies(movies)
-    
+    const movies = await this.props.loadMovies('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
   }
 
   render() {
-    console.log(this.movies)
     const { user } = this.props
     return (
       <div className="App">
@@ -63,7 +61,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  loadMovies: (movies) => dispatch(loadMovies(movies)),
+  loadMovies: (url) => dispatch(fetchMovies(url)),
 })
 
 App.propTypes = {
