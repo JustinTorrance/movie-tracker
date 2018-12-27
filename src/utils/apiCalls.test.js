@@ -18,7 +18,6 @@ describe('API', () => {
       await API.fetchData(url)
       expect(window.fetch).toHaveBeenCalledWith(expected)
     })
-
     it('should throw an error if fetch fails', () => {
       window.fetch = () => Promise.resolve({ ok: false });
       const expected = Error();
@@ -48,7 +47,6 @@ describe('API', () => {
       await API.addUser(mockUser)
       expect(window.fetch).toHaveBeenCalledWith(expected1, expected2)
     })
-
     it('should throw an error when the fetch fails', async () => {
       const mockUser = { name: 'Ashley', email: 'ashley@gmail.com', password: 'ashley' }
       window.fetch = () => Promise.resolve({ ok: false });
@@ -58,7 +56,6 @@ describe('API', () => {
   })
   
   describe('loginUser', () => {
-
     it('calls fetch with the correct data when logging in a user', async () => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.resolve({
