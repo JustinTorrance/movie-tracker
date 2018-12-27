@@ -14,7 +14,7 @@ export class MovieCard extends Component {
   async componentDidMount() {
     const currentFavorites = await API.getFavorites(this.props.user_id)
     const found = currentFavorites.data.find((faveMovie) => {
-      return faveMovie.movie_id === this.props.movie.id 
+      return faveMovie.movie_id === this.props.movie.movie_id || faveMovie.movie_id === this.props.movie.id
     })
     if (found) {
       this.setState({
@@ -27,12 +27,19 @@ export class MovieCard extends Component {
     } 
   }
 
-  toggleFavorite = () => {
-    const { user_id, movie } = this.props
+  toggleFavorite = async () => {
+    let { user_id, movie } = this.props
+    let movieId = movie.id
+
+    if (movie.movie_id) {
+      movieId = movie.movie_id
+    }
+
     if (this.state.favorite) {
-      API.deleteFavorite(user_id, movie.id) 
+      await API.deleteFavorite(user_id, movieId) 
+      this.props.reRender()
     } else {
-      API.addFavorite(movie.id, user_id, movie) 
+      await API.addFavorite(movie.id, user_id, movie) 
     }
     this.setState({favorite: !this.state.favorite})
   }
@@ -62,7 +69,7 @@ export const mapStateToProps = (state) => ({
 
 MovieCard.propTypes = {
   movie: PropTypes.object.isRequired,
-  user_id: PropTypes.number.isRequired
+  user_id: PropTypes.number.isRequired,
 }
 
 export default connect(mapStateToProps)(MovieCard)
