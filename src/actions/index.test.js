@@ -26,13 +26,13 @@ describe('actions', () => {
     const result = actions.signOut()
     expect(result).toEqual(expected)
   })
-  it('should return a type of LOAD_FAVORITES with favorites', () => {
-    const favorites = []
-    const expected = {
-      type: 'LOAD_FAVORITES',
-      favorites
-    }
-    const result = actions.loadFavorites(favorites)
-    expect(result).toEqual(expected)
-  })
+//   it('should return a type of LOAD_FAVORITES with favorites', () => {
+//     const favorites = []
+//     const expected = {
+//       type: 'LOAD_FAVORITES',
+//       favorites
+//     }
+//     const result = actions.loadFavorites(favorites)
+//     expect(result).toEqual(expected)
+//   })
 })

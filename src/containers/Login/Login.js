@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import * as API from '../../utils/apiCalls'
 import { Redirect, Link } from 'react-router-dom'
-import { signIn } from '../../actions/index.js'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
+import { loginUser } from '../../thunks/loginUser'
 
 export class Login extends Component {
   constructor() {
@@ -27,8 +26,7 @@ export class Login extends Component {
     e.preventDefault()
     const { email, password } = this.state
     try {
-      const user = await API.loginUser({email, password})
-      this.props.loginUser({name: user.data.name, password: user.data.password, id: user.data.id})
+      await this.props.loginUser({email, password})
       this.setState({validUser: true})
     } catch (error) {
       this.setState({incorrectLogin: true})
@@ -80,7 +78,7 @@ export class Login extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({ 
-  loginUser: (user) => dispatch(signIn(user))
+  loginUser: (user) => dispatch(loginUser(user))
 })
 
 Login.propTypes = {
