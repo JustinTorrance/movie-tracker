@@ -63,7 +63,8 @@ export class MovieDisplay extends Component {
 
 export const mapStateToProps = (state) => ({
   movies: state.movies,
-  user_id: state.user.id
+  user_id: state.user.id,
+  isLoading: state.isLoading
 })
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -73,7 +74,8 @@ export const mapDispatchToProps = (dispatch) => ({
 MovieDisplay.propTypes = {
   movies: PropTypes.array.isRequired,
   signOut: PropTypes.func.isRequired,
-  user_id: PropTypes.number.isRequired
+  user_id: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDisplay)
