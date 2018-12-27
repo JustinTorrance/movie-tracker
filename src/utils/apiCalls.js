@@ -64,6 +64,5 @@ export const deleteFavorite = async (user_id, movie_id) => {
     }
   })
   const data = await response.json()
-  console.log(data)
   return data
 }
