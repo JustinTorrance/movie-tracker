@@ -16,3 +16,8 @@ export const loadFavorites = (favorites) => ({
   type: 'LOAD_FAVORITES',
   favorites
 })
+
+export const isLoading = (bool) => ({
+  type: 'IS_LOADING',
+  bool
+})
