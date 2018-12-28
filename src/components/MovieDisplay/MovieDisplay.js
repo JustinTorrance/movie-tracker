@@ -5,6 +5,7 @@ import { uid } from 'react-uid'
 import { signOut } from '../../actions/index'
 import { PropTypes } from 'prop-types'
 import { getFavorites } from '../../utils/apiCalls.js'
+import Loading from '../Loading/Loading'
 
 export class MovieDisplay extends Component {
   constructor() {
@@ -16,7 +17,7 @@ export class MovieDisplay extends Component {
     
   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const favoriteMovies = await getFavorites(this.props.user_id)
     this.setState({favoriteMovies: favoriteMovies.data})
   }
@@ -30,7 +31,7 @@ export class MovieDisplay extends Component {
   }
 
   render() {
-    const { movies, signOut } = this.props
+    const { movies, signOut, isLoading } = this.props
     let renderedMovies = movies
     if(this.state.favorites) {
       renderedMovies = this.state.favoriteMovies
@@ -40,6 +41,9 @@ export class MovieDisplay extends Component {
       var title = 'Trending'
       var buttonText = 'Favorites'
     }
+   if(isLoading) {
+      return (<Loading />)
+    } else {
     return(
       <section className="movies-section-container">
         <header className='movies-header'>
@@ -55,18 +59,20 @@ export class MovieDisplay extends Component {
         <div className='movie-container-underline'></div>
         <div className="movies-container">{renderedMovies.map((movie) => {
           return (
-            <MovieCard movie={movie} key={uid(movie)}/>
+            <MovieCard movie={movie} key={uid(movie)} reRender={this.componentDidMount}/>
           )
         })}
         </div>
       </section>
     )
+    }
   }
 }
 
 export const mapStateToProps = (state) => ({
   movies: state.movies,
-  user_id: state.user.id
+  user_id: state.user.id,
+  isLoading: state.isLoading
 })
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -76,7 +82,8 @@ export const mapDispatchToProps = (dispatch) => ({
 MovieDisplay.propTypes = {
   movies: PropTypes.array.isRequired,
   signOut: PropTypes.func.isRequired,
-  user_id: PropTypes.number.isRequired
+  user_id: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDisplay)
