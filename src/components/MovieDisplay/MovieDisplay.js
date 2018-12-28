@@ -34,7 +34,11 @@ export class MovieDisplay extends Component {
     let renderedMovies = movies
     if(this.state.favorites) {
       renderedMovies = this.state.favoriteMovies
-      console.log(renderedMovies)
+      var title = 'Favorites'
+      var buttonText = 'Trending'
+    } else {
+      var title = 'Trending'
+      var buttonText = 'Favorites'
     }
     return(
       <section className="movies-section-container">
@@ -45,9 +49,9 @@ export class MovieDisplay extends Component {
             tracker
           </h1>
           <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
-          <button className='toggle-favorites-btn' onClick={() => this.toggleFavorites()}>Favorites</button>
+          <button className='toggle-favorites-btn' onClick={() => this.toggleFavorites()}>{ buttonText }</button>
         </header>
-        <h2 className='movie-container-label'>Trending</h2>
+        <h2 className='movie-container-label'>{title}</h2>
         <div className='movie-container-underline'></div>
         <div className="movies-container">{renderedMovies.map((movie) => {
           return (
@@ -57,7 +61,6 @@ export class MovieDisplay extends Component {
         </div>
       </section>
     )
-    
   }
 }
 
