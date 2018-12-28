@@ -35,32 +35,37 @@ export class MovieDisplay extends Component {
     let renderedMovies = movies
     if(this.state.favorites) {
       renderedMovies = this.state.favoriteMovies
+      var title = 'Favorites'
+      var buttonText = 'Trending'
+    } else {
+      var title = 'Trending'
+      var buttonText = 'Favorites'
     }
-    if(isLoading === true) {
+   if(isLoading) {
       return (<Loading />)
     } else {
-      return(
-        <section className="movies-section-container">
-          <header className='movies-header'>
-            <h1 className="movie-tracker">     
-              movie
-              <img src='./images/movie_roll.svg' alt="movie roll" className='main-logo'></img>
-              tracker
-            </h1>
-            <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
-            <button className='toggle-favorites-btn' onClick={() => this.toggleFavorites()}>Favorites</button>
-          </header>
-          <h2 className='movie-container-label'>Trending</h2>
-          <div className='movie-container-underline'></div>
-          <div className="movies-container">{renderedMovies.map((movie) => {
-            return (
-              <MovieCard movie={movie} key={uid(movie)} reRender={this.componentDidMount}/>
-            )
-          })}
-          </div>
-        </section>
-      )
-    }   
+    return(
+      <section className="movies-section-container">
+        <header className='movies-header'>
+          <h1 className="movie-tracker">     
+            movie
+            <img src='./images/movie_roll.svg' alt="movie roll" className='main-logo'></img>
+            tracker
+          </h1>
+          <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
+          <button className='toggle-favorites-btn' onClick={() => this.toggleFavorites()}>{ buttonText }</button>
+        </header>
+        <h2 className='movie-container-label'>{title}</h2>
+        <div className='movie-container-underline'></div>
+        <div className="movies-container">{renderedMovies.map((movie) => {
+          return (
+            <MovieCard movie={movie} key={uid(movie)} reRender={this.componentDidMount}/>
+          )
+        })}
+        </div>
+      </section>
+    )
+    }
   }
 }
 
