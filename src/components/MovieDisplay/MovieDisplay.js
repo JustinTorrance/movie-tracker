@@ -37,7 +37,7 @@ export class MovieDisplay extends Component {
       renderedMovies = this.state.favoriteMovies
       console.log(renderedMovies)
     }
-    if(isLoading === true) {
+    if(isLoading) {
       return (<Loading />)
     } else {
       return(
