@@ -27,12 +27,12 @@ export class App extends Component {
         <Switch>
           <Route 
             exact
-            path='/'
+            path='/' 
             render={() => {
               if (!user.name) {
                 return <Redirect to='/login' />
               } else {
-                return <MovieDisplay />
+                return <Redirect to='/trending' />
               }
             }}
           />
@@ -46,7 +46,23 @@ export class App extends Component {
           />
           <Route
             path='/favorites'
-            component={MovieDisplay}
+            render={() => {
+              if (!user.name){
+                return <Redirect to='/login' />
+              } else {
+                return <MovieDisplay />
+              }
+            }}
+          />
+          <Route
+            path='/trending'
+            render={() => {
+              if (!user.name){
+                return <Redirect to='/login' />
+              } else {
+                return <MovieDisplay />
+              }
+            }}
           />
         </Switch>
       </div>

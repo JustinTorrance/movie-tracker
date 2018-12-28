@@ -6,15 +6,15 @@ import { signOut } from '../../actions/index'
 import { PropTypes } from 'prop-types'
 import { getFavorites } from '../../utils/apiCalls.js'
 import Loading from '../Loading/Loading'
+import { Link } from 'react-router-dom'
 
 export class MovieDisplay extends Component {
   constructor() {
     super()
     this.state = {
-      favorites: false,
+      favorites: '',
       favoriteMovies: []
     }
-    
   }
 
   componentDidMount = async () => {
@@ -23,9 +23,13 @@ export class MovieDisplay extends Component {
   }
 
   async toggleFavorites() {
+    let current = ''
     const favoriteMovies = await getFavorites(this.props.user_id)
+    if (!this.state.favorites) {
+      current = 'favorites'
+    }
     this.setState({
-      favorites: !this.state.favorites,
+      favorites: current,
       favoriteMovies: favoriteMovies.data
     })
   }
@@ -36,24 +40,28 @@ export class MovieDisplay extends Component {
     if(this.state.favorites) {
       renderedMovies = this.state.favoriteMovies
       var title = 'Favorites'
-      var buttonText = 'Trending'
+      var buttonText = 'trending'
     } else {
       var title = 'Trending'
-      var buttonText = 'Favorites'
+      var buttonText = 'favorites'
     }
-   if(isLoading) {
+    if(isLoading) {
       return (<Loading />)
-    } else {
+    }
     return(
       <section className="movies-section-container">
         <header className='movies-header'>
-          <h1 className="movie-tracker">     
+          <h1 className="movie-tracker">  
             movie
             <img src='./images/movie_roll.svg' alt="movie roll" className='main-logo'></img>
             tracker
           </h1>
-          <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
-          <button className='toggle-favorites-btn' onClick={() => this.toggleFavorites()}>{ buttonText }</button>
+          <Link to={'/login'}>
+            <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
+          </Link>
+          <Link to={`/${buttonText}`}>
+            <button className='toggle-favorites-btn' onClick={() => this.toggleFavorites()}>{ buttonText}</button>
+          </Link>
         </header>
         <h2 className='movie-container-label'>{title}</h2>
         <div className='movie-container-underline'></div>
@@ -62,12 +70,14 @@ export class MovieDisplay extends Component {
             <MovieCard movie={movie} key={uid(movie)} reRender={this.componentDidMount}/>
           )
         })}
+        {
+          renderedMovies.length === 0 && <h2>You Have No Favorites</h2>
+        }
         </div>
       </section>
     )
     }
   }
-}
 
 export const mapStateToProps = (state) => ({
   movies: state.movies,
