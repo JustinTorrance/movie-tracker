@@ -17,7 +17,7 @@ export class MovieDisplay extends Component {
     
   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const favoriteMovies = await getFavorites(this.props.user_id)
     this.setState({favoriteMovies: favoriteMovies.data})
   }
@@ -35,7 +35,6 @@ export class MovieDisplay extends Component {
     let renderedMovies = movies
     if(this.state.favorites) {
       renderedMovies = this.state.favoriteMovies
-      console.log(renderedMovies)
     }
     if(isLoading === true) {
       return (<Loading />)
@@ -55,16 +54,15 @@ export class MovieDisplay extends Component {
           <div className='movie-container-underline'></div>
           <div className="movies-container">{renderedMovies.map((movie) => {
             return (
-              <MovieCard movie={movie} key={uid(movie)}/>
+              <MovieCard movie={movie} key={uid(movie)} reRender={this.componentDidMount}/>
             )
           })}
           </div>
         </section>
       )
-      
-    }
+    }   
   }
-    }
+}
 
 export const mapStateToProps = (state) => ({
   movies: state.movies,
