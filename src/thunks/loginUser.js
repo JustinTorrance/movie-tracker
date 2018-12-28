@@ -12,8 +12,8 @@ export const loginUser = (user) => {
       })
       const data = await response.json()
       dispatch(signIn(data.data))
-    } catch {
-      throw new Error()
+    } catch(error) {
+      return 'Error: something went wrong'
     }
   }
 }
