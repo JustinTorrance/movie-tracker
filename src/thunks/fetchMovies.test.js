@@ -42,4 +42,24 @@ describe('fetchMovies', () => {
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(loadMovies(mockMovie))
   })
+
+  it('should dispatch loading(false) if the response is ok', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true
+    }))
+    
+    const thunk = fetchMovies(mockUrl)
+    await thunk(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith(loading(false))
+  })
+
+  it('should dispatch loading(true) if the response is not ok', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false
+    }))
+    
+    const thunk = fetchMovies(mockUrl)
+    await thunk(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith(loading(true))
+  })
 })

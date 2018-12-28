@@ -4,7 +4,21 @@ exports[`App App component Should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
-    loadMovies={[MockFunction]}
+    loadMovies={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
     movies={Array []}
     user={
       Object {
@@ -41,6 +55,10 @@ ShallowWrapper {
           component={[MockFunction]}
           path="/signup"
         />
+        <Route
+          component={[MockFunction]}
+          path="/favorites"
+        />
       </Switch>,
       "className": "App",
     },
@@ -63,6 +81,10 @@ ShallowWrapper {
           <Route
             component={[MockFunction]}
             path="/signup"
+          />,
+          <Route
+            component={[MockFunction]}
+            path="/favorites"
           />,
         ],
       },
@@ -105,6 +127,18 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [MockFunction],
+            "path": "/favorites",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": [Function],
     },
@@ -130,6 +164,10 @@ ShallowWrapper {
             component={[MockFunction]}
             path="/signup"
           />
+          <Route
+            component={[MockFunction]}
+            path="/favorites"
+          />
         </Switch>,
         "className": "App",
       },
@@ -152,6 +190,10 @@ ShallowWrapper {
             <Route
               component={[MockFunction]}
               path="/signup"
+            />,
+            <Route
+              component={[MockFunction]}
+              path="/favorites"
             />,
           ],
         },
@@ -189,6 +231,18 @@ ShallowWrapper {
             "props": Object {
               "component": [MockFunction],
               "path": "/signup",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [MockFunction],
+              "path": "/favorites",
             },
             "ref": null,
             "rendered": null,
