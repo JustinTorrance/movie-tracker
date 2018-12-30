@@ -35,7 +35,7 @@ export class MovieDisplay extends Component {
   }
 
   render() {
-    const { movies, signOut, isLoading } = this.props
+    const { movies, signOut, isLoading, user } = this.props
     let renderedMovies = movies
     if(this.state.favorites) {
       renderedMovies = this.state.favoriteMovies
@@ -56,8 +56,9 @@ export class MovieDisplay extends Component {
             <img src='./images/movie_roll.svg' alt="movie roll" className='main-logo'></img>
             tracker
           </h1>
+          <p>Hello, {user.name}</p>
           <Link to={'/login'}>
-            <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
+            <button className='sign-out-btn' onClick={signOut}>sign out</button>
           </Link>
           <Link to={`/${buttonText}`}>
             <button className='toggle-favorites-btn' onClick={() => this.toggleFavorites()}>{ buttonText}</button>
@@ -82,7 +83,8 @@ export class MovieDisplay extends Component {
 export const mapStateToProps = (state) => ({
   movies: state.movies,
   user_id: state.user.id,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  user: state.user
 })
 
 export const mapDispatchToProps = (dispatch) => ({
