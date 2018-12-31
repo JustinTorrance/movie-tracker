@@ -56,8 +56,12 @@ ShallowWrapper {
           path="/signup"
         />
         <Route
-          component={[MockFunction]}
           path="/favorites"
+          render={[Function]}
+        />
+        <Route
+          path="/trending"
+          render={[Function]}
         />
       </Switch>,
       "className": "App",
@@ -83,8 +87,12 @@ ShallowWrapper {
             path="/signup"
           />,
           <Route
-            component={[MockFunction]}
             path="/favorites"
+            render={[Function]}
+          />,
+          <Route
+            path="/trending"
+            render={[Function]}
           />,
         ],
       },
@@ -132,8 +140,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "component": [MockFunction],
             "path": "/favorites",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "path": "/trending",
+            "render": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -165,8 +185,12 @@ ShallowWrapper {
             path="/signup"
           />
           <Route
-            component={[MockFunction]}
             path="/favorites"
+            render={[Function]}
+          />
+          <Route
+            path="/trending"
+            render={[Function]}
           />
         </Switch>,
         "className": "App",
@@ -192,8 +216,12 @@ ShallowWrapper {
               path="/signup"
             />,
             <Route
-              component={[MockFunction]}
               path="/favorites"
+              render={[Function]}
+            />,
+            <Route
+              path="/trending"
+              render={[Function]}
             />,
           ],
         },
@@ -241,8 +269,20 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "component": [MockFunction],
               "path": "/favorites",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "path": "/trending",
+              "render": [Function],
             },
             "ref": null,
             "rendered": null,
