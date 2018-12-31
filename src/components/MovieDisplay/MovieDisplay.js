@@ -56,7 +56,7 @@ export class MovieDisplay extends Component {
             <img src='./images/movie_roll.svg' alt="movie roll" className='main-logo'></img>
             tracker
           </h1>
-          <p>Hello, {user.name}</p>
+          <p className='user-greeting'>Hello, {user.name}</p>
           <Link to={'/login'}>
             <button className='sign-out-btn' onClick={signOut}>sign out</button>
           </Link>
@@ -95,7 +95,8 @@ MovieDisplay.propTypes = {
   movies: PropTypes.array.isRequired,
   signOut: PropTypes.func.isRequired,
   user_id: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  user: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDisplay)
