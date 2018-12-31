@@ -48,7 +48,9 @@ export class MovieCard extends Component {
     const { movie } = this.props
     return (
     <article className='movie-card' style={{ backgroundImage: `url(${movie.poster_path})` }}>
-      <i onClick={this.toggleFavorite} className={`fas fa-star ${this.state.favorite && 'favorite'}`}></i>    
+      <div className='star-container'>
+      </div>
+      <i onClick={this.toggleFavorite} className={`fas fa-star ${this.state.favorite && 'favorite'}`}></i> 
       <div className='dark-background'></div>
       <div className='movie-title-container'>
         <h2 className='movie-title'>{movie.title}</h2>
