@@ -10,7 +10,7 @@ export const fetchMovies = (url) => {
       dispatch(loadMovies(movies))
       dispatch(loading(false))      
     } catch(error) {
-      // dispatch(isError(true))
+      return 'Error: something went wrong'
     }
   }
 }
