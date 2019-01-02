@@ -1,6 +1,6 @@
 # Movie Tracker
 
-Browse trending movies from around the world. Save your favorite movies to your profile to view them later. 
+#### Browse trending movies from around the world. Save your favorite movies to your profile to view them later. 
 
 First, in sign to your account or create a new account  
 <img width="1440" alt="screen shot 2019-01-02 at 11 14 47 am" src="https://user-images.githubusercontent.com/33379226/50605550-d04f3c80-0e7f-11e9-8a64-c7515c852dce.png">
@@ -12,6 +12,13 @@ Click the star to save a film to your favorites.
 Click the favorites button to view all starred movies.
 <img width="1440" alt="screen shot 2019-01-02 at 11 15 38 am" src="https://user-images.githubusercontent.com/33379226/50605548-d04f3c80-0e7f-11e9-915b-7872a3f14e15.png">
 
+  
+## Tech Stack
+- Redux
+- React
+- SASS / SCSS
+- Jest
+- Enzyme
 
   
 ## Setup
