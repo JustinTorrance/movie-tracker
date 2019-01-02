@@ -1,12 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme' 
 import { MovieDisplay } from './MovieDisplay'
-import Loading from '../Loading/Loading'
+import { fetchMovies } from '../../thunks/fetchMovies'
 import { signOut } from '../../actions/index'
 import { mapStateToProps, mapDispatchToProps } from './MovieDisplay'
 import { getFavorites } from '../../utils/apiCalls'
 
 jest.mock('../../utils/apiCalls')
+jest.mock('../../thunks/fetchMovies')
 getFavorites.mockImplementation(() => {
   return {data: []}
 })
@@ -24,21 +25,22 @@ describe('MovieDisplay', () => {
     runtime: 50
   }
   const mockSignOut = jest.fn()
+  const mockLoadMovies = jest.fn()
   const mockUser = {name: 'jake'}
 
   it('Should match the snapshot', () => {
-    const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={1} user={mockUser} isLoading={false}/>)
+    const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={1} user={mockUser} isLoading={false} loadMovies={mockLoadMovies}/>)
     
     expect(wrapper).toMatchSnapshot()
   })
 
   it('Should match the snapshot if isLoading is true', () => {
-    const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={true}/>)
+    const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={true} loadMovies={mockLoadMovies}/>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should call toggleFavorites on button click', () => {
-    const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false}/>)
+    const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false} loadMovies={mockLoadMovies}/>)
     wrapper.instance().toggleFavorites = jest.fn()
     wrapper.find('.toggle-favorites-btn').simulate('click')
     expect(wrapper.instance().toggleFavorites).toHaveBeenCalled();
@@ -46,20 +48,20 @@ describe('MovieDisplay', () => {
 
   describe('toggleFavorites', () => {
     it('should call getFavorites', async () => {
-      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false}/>)
+      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false} loadMovies={mockLoadMovies}/>)
       await wrapper.instance().toggleFavorites()
       expect(getFavorites).toHaveBeenCalledWith(2)
     })
 
     it('should set favoriteMovies to the array returned from the fetch call', async () => {
-      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false}/>)
+      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false} loadMovies={mockLoadMovies}/>)
       await wrapper.instance().toggleFavorites()
       const expected = []
       expect(wrapper.state().favoriteMovies).toEqual(expected)
     })
   
     it('should set favorites to en empty string if current page is favorites', async () => {
-      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false}/>)
+      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false} loadMovies={mockLoadMovies}/>)
       await wrapper.instance().toggleFavorites()
       await wrapper.instance().toggleFavorites()
       const expected = ''
@@ -68,7 +70,7 @@ describe('MovieDisplay', () => {
     })
 
     it('should set favorites to a string of favorites if current value is an empty string', async () => {
-      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false}/>)
+      const wrapper = shallow(<MovieDisplay movies={[mockMovie]} signOut={mockSignOut} user_id={2} user={mockUser} isLoading={false} loadMovies={mockLoadMovies}/>)
       await wrapper.instance().toggleFavorites()
       const expected = 'favorites'
       expect(wrapper.state().favorites).toEqual(expected)
@@ -97,6 +99,14 @@ describe('MovieDisplay', () => {
       const actionToDispatch = signOut()
       const mappedProps = mapDispatchToProps(mockDispatch)
       mappedProps.signOut()
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it('Calls dispatch with a fetchMovies action', () => {
+      const mockDispatch = jest.fn()
+      const actionToDispatch = fetchMovies()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.loadMovies()
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
   })

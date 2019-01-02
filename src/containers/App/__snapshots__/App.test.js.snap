@@ -4,21 +4,8 @@ exports[`App App component Should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
-    loadMovies={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    error={false}
+    loadMovies={[MockFunction]}
     movies={Array []}
     user={
       Object {
@@ -63,6 +50,10 @@ ShallowWrapper {
           path="/trending"
           render={[Function]}
         />
+        <Route
+          component={[Function]}
+          path="/error"
+        />
       </Switch>,
       "className": "App",
     },
@@ -93,6 +84,10 @@ ShallowWrapper {
           <Route
             path="/trending"
             render={[Function]}
+          />,
+          <Route
+            component={[Function]}
+            path="/error"
           />,
         ],
       },
@@ -159,6 +154,18 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "path": "/error",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": [Function],
     },
@@ -192,6 +199,10 @@ ShallowWrapper {
             path="/trending"
             render={[Function]}
           />
+          <Route
+            component={[Function]}
+            path="/error"
+          />
         </Switch>,
         "className": "App",
       },
@@ -222,6 +233,10 @@ ShallowWrapper {
             <Route
               path="/trending"
               render={[Function]}
+            />,
+            <Route
+              component={[Function]}
+              path="/error"
             />,
           ],
         },
@@ -288,10 +303,85 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "/error",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
         ],
         "type": [Function],
       },
       "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`App App component Should match the snapshot if in error state 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App
+    error={true}
+    loadMovies={[MockFunction]}
+    movies={Array []}
+    user={
+      Object {
+        "email": "jake",
+        "name": "jake",
+        "password": "jake",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

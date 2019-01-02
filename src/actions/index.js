@@ -16,3 +16,8 @@ export const loading = (bool) => ({
   type: 'IS_LOADING',
   bool
 })
+
+export const catchError = (bool) => ({
+  type: 'IS_ERROR',
+  bool
+})

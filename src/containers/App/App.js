@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import MovieDisplay from '../../components/MovieDisplay/MovieDisplay'
 import { connect } from 'react-redux'
-import { fetchMovies } from '../../thunks/fetchMovies'
 import './App.scss'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import Login from '../Login/Login'
 import Signup from '../../components/Signup/Signup'
 import { PropTypes } from 'prop-types'
+import ErrorPage from '../../components/ErrorPage/ErrorPage'
 
 export class App extends Component {
   constructor() {
     super()
   }
 
-  async componentDidMount() {
-    await this.props.loadMovies('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
-  }
-
   render() {
-    const { user } = this.props
+    const { user, error } = this.props
+    if (error) {
+      return <ErrorPage/>
+    }
     return (
       <div className="App">
         <Switch>
@@ -61,6 +60,9 @@ export class App extends Component {
               }
             }}
           />
+          <Route 
+            path='/error'
+            component={ErrorPage} />
         </Switch>
       </div>
 
@@ -70,18 +72,16 @@ export class App extends Component {
 
 export const mapStateToProps = (state) => ({
   movies: state.movies,
-  user: state.user
+  user: state.user,
+  error: state.error
 })
 
-export const mapDispatchToProps = (dispatch) => ({
-  loadMovies: (url) => dispatch(fetchMovies(url)),
-})
 
 App.propTypes = {
   movies: PropTypes.array.isRequired,
   user: PropTypes.object.isRequired,
-  loadMovies: PropTypes.func.isRequired
+  error: PropTypes.bool.isRequired
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
+export default withRouter(connect(mapStateToProps)(App))
 
