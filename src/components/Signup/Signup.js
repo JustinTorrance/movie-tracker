@@ -29,16 +29,6 @@ export default class Signup extends Component {
     }
   }
 
-  // validateEmail = (mail) => {
-  //   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.email.value))
-  //     {
-  //       return (true)
-  //     }
-  //       alert("You have entered an invalid email address!")
-  //       return (false)
-  // }
-
-
   handleChange = async (e) => {
     const { name, value } = e.target
     await this.setState({
