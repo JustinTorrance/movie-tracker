@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import MovieDisplay from '../../components/MovieDisplay/MovieDisplay'
-// import { fetchData } from '../../utils/apiCalls'
 import { connect } from 'react-redux'
-// import { loadMovies } from '../../actions/index'
 import { fetchMovies } from '../../thunks/fetchMovies'
 import './App.scss'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import Login from '../Login/Login'
 import Signup from '../../components/Signup/Signup'
 import { PropTypes } from 'prop-types'
-
 
 export class App extends Component {
   constructor() {
