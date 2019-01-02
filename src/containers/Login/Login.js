@@ -25,12 +25,13 @@ export class Login extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const { email, password } = this.state
-    try {
-      await this.props.loginUser({email, password})
-      this.setState({validUser: true})
-    } catch (error) {
+    const loginAttempt = await this.props.loginUser({email, password})
+    if(loginAttempt !== undefined) {
       this.setState({incorrectLogin: true})
+    } else {
+      this.setState({validUser: true})
     }
+
   }
 
   render() {

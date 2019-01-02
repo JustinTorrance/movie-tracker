@@ -21,10 +21,10 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h1>
-          OOPS
+          OOPS!
         </h1>,
         <h2>
-          Something Went Wrong
+          An unexpected error occurred...
         </h2>,
         <button
           className="return-to-site-btn"
@@ -42,10 +42,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "OOPS",
+          "children": "OOPS!",
         },
         "ref": null,
-        "rendered": "OOPS",
+        "rendered": "OOPS!",
         "type": "h1",
       },
       Object {
@@ -53,10 +53,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Something Went Wrong",
+          "children": "An unexpected error occurred...",
         },
         "ref": null,
-        "rendered": "Something Went Wrong",
+        "rendered": "An unexpected error occurred...",
         "type": "h2",
       },
       Object {
@@ -83,10 +83,10 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h1>
-            OOPS
+            OOPS!
           </h1>,
           <h2>
-            Something Went Wrong
+            An unexpected error occurred...
           </h2>,
           <button
             className="return-to-site-btn"
@@ -104,10 +104,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "OOPS",
+            "children": "OOPS!",
           },
           "ref": null,
-          "rendered": "OOPS",
+          "rendered": "OOPS!",
           "type": "h1",
         },
         Object {
@@ -115,10 +115,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Something Went Wrong",
+            "children": "An unexpected error occurred...",
           },
           "ref": null,
-          "rendered": "Something Went Wrong",
+          "rendered": "An unexpected error occurred...",
           "type": "h2",
         },
         Object {

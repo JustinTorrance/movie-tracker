@@ -1,5 +1,4 @@
 import { mapStateToProps, mapDispatchToProps } from './App'
-import { loadMovies } from '../../actions/index'
 import { fetchMovies } from '../../thunks/fetchMovies'
 import { shallow, mount } from 'enzyme'
 import { App } from './App'
@@ -165,7 +164,7 @@ describe('App', () => {
         expect(wrapper.find(MovieDisplay)).toHaveLength(1)
     })
 
-    it('should redirect to login if at the /favorites route and no user is logged in', () => {
+    it('should redirect to login if at the /trending route and no user is logged in', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/trending']}>

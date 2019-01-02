@@ -86,7 +86,7 @@ describe('Login Component', () => {
     })
 
     it('Should set incorrectlogin to true if there is an error', async () => {
-      loginUserMock = () => {throw new Error()}
+      loginUserMock = () => {return new Error()}
       wrapper = shallow(<Login loginUser={loginUserMock} />)
       
       await wrapper.instance().handleSubmit(mockEvent)
