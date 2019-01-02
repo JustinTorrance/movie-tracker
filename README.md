@@ -5,7 +5,7 @@ Browse trending movies from around the world. Save your favorite movies to your 
 
 ## Setup
 
-### You must first run the back-end server by entering the following commands into your terminal:
+#### You must first run the back-end server by entering the following commands into your terminal:
 
 `mkdir movie-tracker`   
 `cd movie-tracker`  
@@ -15,7 +15,7 @@ Browse trending movies from around the world. Save your favorite movies to your 
 `npm start`  
 the backend server must run on `http://localhost:3000`  
   
-### Now you can set up the front-end:  
+#### Now you can set up the front-end:  
   
 Create new tab in your terminal and cd into the main `movie-tracker` directory  
 `git clone https://github.com/JustinTorrance/movie-tracker frontend`  
