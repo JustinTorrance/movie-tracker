@@ -2,7 +2,7 @@
 
 #### Browse trending movies from around the world. Save your favorite movies to your profile to view them later. 
 
-First, in sign to your account or create a new account  
+First, sign in to your account or create a new account  
 <img width="1440" alt="screen shot 2019-01-02 at 11 14 47 am" src="https://user-images.githubusercontent.com/33379226/50605550-d04f3c80-0e7f-11e9-8a64-c7515c852dce.png">
 
 Next, browse newly-released movies. Hover over the movie to show more information.  
