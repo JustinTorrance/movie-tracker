@@ -81,6 +81,12 @@ describe('SignUp Component', () => {
       wrapper.state().confirmPassword = 'jake1'
     })
 
+    it('should call emailValidation', async () => {
+      const spy = jest.spyOn(wrapper.instance(), 'emailValidation')
+      await wrapper.instance().handleSubmit(mockEvent)
+      expect(spy).toHaveBeenCalled()
+    })
+
     it('Should check if passwords match', () => {
       wrapper.state().password = 'jake'
       wrapper.state().confirmPassword = 'jake1'

@@ -14,7 +14,8 @@ export default class Signup extends Component {
       duplicateUser: false,
       validUser: false,
       formComplete: false,
-      passwordsMatch: true
+      passwordsMatch: true,
+      validEmail: true
     }
   }
 
@@ -48,27 +49,24 @@ export default class Signup extends Component {
     e.preventDefault()
     const { name, email, password, confirmPassword } = this.state
     var emailInputVal = email;
-    if (this.emailValidation(emailInputVal)) {
-       console.log('hello!')
-      this.setState({ validUser: true})
-    } else {
-      alert('Please Enter Valid E-MAIL');
-      return <Redirect to='/signup' />
+    if (!this.emailValidation(emailInputVal)) {
+      this.setState({ validEmail: false, duplicateUser: false, passwordsMatch: true})
+      return
     }
     if (password !== confirmPassword) {
-      this.setState({ duplicateUser: false, passwordsMatch: false })
+      this.setState({ duplicateUser: false, passwordsMatch: false, validEmail: true })
       return
     }
     const data = await addUser({ name, email, password }) 
     if (data.error) {
-      this.setState({ duplicateUser: true, passwordsMatch: true})
+      this.setState({ duplicateUser: true, passwordsMatch: true, validEmail: true})
     } else {
       this.setState({ validUser: true})
     }
   }
 
   render() {
-    const { name, email, password, confirmPassword, validUser, formComplete, duplicateUser, passwordsMatch } = this.state
+    const { name, email, password, confirmPassword, validUser, formComplete, duplicateUser, passwordsMatch, validEmail} = this.state
     if (validUser) {
      return <Redirect to='/login' />
     }
@@ -114,6 +112,7 @@ export default class Signup extends Component {
         </form>
         <h3 className={`duplicate-user-message ${duplicateUser && 'create-user-error'}`}>An account already exists with that email</h3>
         <h3 className={`passwords-message ${!passwordsMatch && 'create-user-error'}`}>Passwords must match</h3>
+        <h3 className={`passwords-message ${!validEmail && 'create-user-error'}`}>Please enter a valid e-mail</h3>
       </div>
     )
   }
