@@ -73,3 +73,40 @@
   margin: 30px auto;
   width: calc(100% - 60px)
 }
+
+@media screen and (max-width: 845px) {
+
+  .sign-out-btn, .toggle-favorites-btn {
+    top: 20px;
+  }
+
+  .sign-out-btn {
+    right: 300px;
+  }
+
+  .toggle-favorites-btn {
+    right: 200px;
+  }
+
+  .user-greeting {
+    right: 50px;
+
+  }
+
+  .movie-tracker {
+    margin-top: 80px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .movie-tracker {
+    font-size: 55px;
+  }
+
+  .movie-container-label {
+    font-size: 40px;
+  }
+
+}
