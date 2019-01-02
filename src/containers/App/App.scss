@@ -9,6 +9,7 @@ $regular-font: 'Raleway', sans-serif;
 @import '../../components/MovieDisplay/movieDisplay';
 @import '../../components/MovieCard/movieCard';
 @import '../../components/ErrorPage/_errorPage';
+@import '../../components/Loading/Loading';
 
 body {
   background-image: url('../../utils/images/app_background.png');
