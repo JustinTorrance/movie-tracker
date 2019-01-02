@@ -28,3 +28,5 @@ Create new tab in your terminal and cd into the main `movie-tracker` directory
   
 Inside of the `frontend` directory, enter the following command in your terminal:  
 `npm test`  
+
+https://github.com/JustinTorrance/movie-tracker/blob/master/chrome-capture%20(1).gif?raw=true
