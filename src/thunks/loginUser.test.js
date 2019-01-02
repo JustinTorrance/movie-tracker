@@ -21,12 +21,11 @@ describe('loginUser', () => {
     expect(mockDispatch).toHaveBeenCalledWith(signIn())
   })
   it('should return an error message', async () => {
-    const mockUser = { id: 1, name: 'Taylor', password: 'password', email: 't@gmail.com'}
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: false
     }))
     const thunk = loginUser(mockUrl)
     const result = await thunk(mockDispatch)
-    expect(result).toEqual('Error: something went wrong')
+    expect(result).toThrow()
   })
 })

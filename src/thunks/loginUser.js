@@ -13,7 +13,7 @@ export const loginUser = (user) => {
       const data = await response.json()
       dispatch(signIn(data.data))
     } catch(error) {
-      return 'Error: something went wrong'
+      throw (new Error(error))
     }
   }
 }
