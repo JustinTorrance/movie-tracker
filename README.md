@@ -1,8 +1,8 @@
 # Movie Tracker
 
 Browse trending movies from around the world. Save your favorite movies to your profile to view them later. 
-
-
+  
+  
 ## Setup
 
 #### You must first run the back-end server by entering the following commands into your terminal:
@@ -28,5 +28,14 @@ Create new tab in your terminal and cd into the main `movie-tracker` directory
   
 Inside of the `frontend` directory, enter the following command in your terminal:  
 `npm test`  
+  
+  
+## Authors
+Ashley Levi  
+https://github.com/ashleylevi  
 
-https://github.com/JustinTorrance/movie-tracker/blob/master/chrome-capture%20(1).gif?raw=true
+Jake Lauer  
+https://github.com/jakelauer27  
+
+Justin Torrance  
+https://github.com/justintorrance
