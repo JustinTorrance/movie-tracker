@@ -1,5 +1,6 @@
 import { fetchMovies } from './fetchMovies'
 import { loading, loadMovies } from '../actions/index'
+import { catchError } from '../actions/index'
 
 
 describe('fetchMovies', () => {
@@ -12,29 +13,30 @@ describe('fetchMovies', () => {
   })
 
   it('should dispatch loadMovies with the correct param', async () => {
-    const mockMovie =
-        [{ 
-          id: 1,
-          title: 'fight club',
-          release_date: 2000,
-          vote_average: 9.1,
-          poster_path: undefined,
-          backdrop_path: undefined,
-          overview: 'overview',
-          genres: 'action',
-          runtime: 127 
-        }]
+    const mockMovies = [{ 
+        id: 1,
+        title: 'fight club',
+        release_date: 2000,
+        vote_average: 9.1,
+        poster_path: undefined,
+        backdrop_path: undefined,
+        overview: 'overview',
+        genres: 'action',
+        runtime: 127 
+    }]
+    
     
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
       json: () => Promise.resolve({
-        movies: mockMovie
+        movies: mockMovies
       })
     }))
     
     const thunk = fetchMovies(mockUrl)
     await thunk(mockDispatch)
-    expect(mockDispatch).toHaveBeenCalledWith(loadMovies(mockMovie))
+    expect(mockDispatch).toHaveBeenCalledWith(loadMovies( {movies: mockMovies}))
+    expect(mockDispatch).toHaveBeenCalledWith(loading(false))
   })
 
   it('should dispatch loading(true)', async () => {
@@ -64,5 +66,6 @@ describe('fetchMovies', () => {
     const thunk = fetchMovies(mockUrl)
     const result = await thunk(mockDispatch)
     expect(result).toEqual('Error: something went wrong')
+    expect(mockDispatch).toHaveBeenCalledWith(catchError(true))
   })
 })

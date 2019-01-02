@@ -22,10 +22,11 @@ describe('loginUser', () => {
   })
 
   it('should return an error message', async () => {
-    window.fetch = jest.fn().mockImplementation(() => {
-      throw new Error()
-    })
-
-    await expect(loginUser()).rejects.toThrow(Error)
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false
+    }))
+    const thunk = loginUser(mockUrl)
+    const result = await thunk(mockDispatch)
+    expect(result).toEqual(Error('Error: something went wrong'))
   })
 })
