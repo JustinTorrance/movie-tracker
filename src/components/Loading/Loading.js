@@ -3,7 +3,13 @@ import React from 'react'
 const Loading = () => {
   return (
     <div>
-      <p>Loading...</p>
+      <div className="loading-container">
+        <div className="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+        <p className="loading">Loading</p>
     </div>
   )
 }
