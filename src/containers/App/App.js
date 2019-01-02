@@ -14,7 +14,7 @@ export class App extends Component {
   }
 
   async componentDidMount() {
-    const movies = await this.props.loadMovies('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
+    await this.props.loadMovies('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
   }
 
   render() {

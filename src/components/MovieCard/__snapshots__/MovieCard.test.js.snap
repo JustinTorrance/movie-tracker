@@ -33,6 +33,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <div
+          className="star-container"
+        />,
         <i
           className="fas fa-star false"
           onClick={[Function]}
@@ -78,6 +81,17 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "star-container",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -218,6 +232,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <div
+            className="star-container"
+          />,
           <i
             className="fas fa-star false"
             onClick={[Function]}
@@ -263,6 +280,17 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "star-container",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
         Object {
           "instance": null,
           "key": undefined,

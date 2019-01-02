@@ -1,19 +1,11 @@
 import { Login, mapDispatchToProps } from './Login'
-import { signIn } from '../../actions'
 import React from 'react'
 import { shallow } from 'enzyme'
-import * as API from '../../utils/apiCalls'
+import { loginUser } from '../../thunks/loginUser'
 
-jest.mock('../../utils/apiCalls')
-
-beforeAll(() => {
-  API.loginUser.mockImplementation((email, password) => ({
-    data: {
-      name: 'Jake',
-      email: email,
-      password: password
-    }
-  }))
+jest.mock('../../thunks/loginUser')
+loginUser.mockImplementation((data) => {
+  return data
 })
 
 describe('Login Component', () => {
@@ -78,15 +70,8 @@ describe('Login Component', () => {
       wrapper.state().password = 'jake'
     })
 
-    it('Should login the user through the API', async () => {
-      const expected = {email: 'ashley@gmail.com', password: 'jake'}
-
-      await wrapper.instance().handleSubmit(mockEvent)
-      expect(API.loginUser).toHaveBeenCalledWith(expected)
-    })  
-
     it('Should call login user from props', async () => {
-      const expected = {name: 'Jake', password: undefined}
+      const expected = {"email": "ashley@gmail.com", "password": "jake"}
 
       await wrapper.instance().handleSubmit(mockEvent)
       expect(loginUserMock).toHaveBeenCalledWith(expected)      
@@ -101,7 +86,8 @@ describe('Login Component', () => {
     })
 
     it('Should set incorrectlogin to true if there is an error', async () => {
-      API.loginUser.mockImplementation((email, password) => {throw new Error()})
+      loginUserMock = () => {throw new Error()}
+      wrapper = shallow(<Login loginUser={loginUserMock} />)
       
       await wrapper.instance().handleSubmit(mockEvent)
 
@@ -112,9 +98,11 @@ describe('Login Component', () => {
   })
 
   describe('mapDispatchToProps', () => {
-    it('calls dispatch with a signIn action when loginUser is called', () => {
+    it('calls dispatch with a signIn action when loginUser is called', async () => {
+
+      
       const mockDispatch = jest.fn()
-      const actionToDispatch = signIn({name: 'Justin', email: 'J@aol.com', id: 1, password: 'password'})
+      const actionToDispatch = await loginUser({name: 'Justin', email: 'J@aol.com', id: 1, password: 'password'})
       const mappedProps = mapDispatchToProps(mockDispatch)
       mappedProps.loginUser({name: 'Justin', email: 'J@aol.com', id: 1, password: 'password'})
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)

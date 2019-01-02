@@ -1,42 +1,32 @@
 import { mapStateToProps, mapDispatchToProps } from './App'
 import { loadMovies } from '../../actions/index'
+import { fetchMovies } from '../../thunks/fetchMovies'
 import { shallow, mount } from 'enzyme'
 import { App } from './App'
 import React from 'react'
-import { fetchData } from '../../utils/apiCalls'
 import { MemoryRouter } from 'react-router-dom'
 import MovieDisplay from '../../components/MovieDisplay/MovieDisplay'
 import Login from '../../containers/Login/Login'
 import Signup from '../../components/Signup/Signup'
 import { Provider } from 'react-redux'
 
-jest.mock('../../utils/apiCalls')
 jest.mock('../../components/MovieDisplay/MovieDisplay')
 jest.mock('../../components/Signup/Signup')
 jest.mock('../../containers/Login/Login')
+jest.mock('../../thunks/fetchMovies')
+
+fetchMovies.mockImplementation((data) => {
+  return {'movies': data, "type": "LOAD_MOVIES"}
+})
 
 describe('App', () => {
-  const mockMovies = [{
-    id: 1,
-    title: 'Titanic',
-    year: 1999,
-    rating: 9,
-    posterPic: 'https://image.tmdb.org/t/p/w500///',
-    backdropPic: 'https://image.tmdb.org/t/p/w500///',
-    overview: 'great movie',
-    genres: 'drama',
-    runtime: 50
-  }]
 
-  beforeAll(() => {
-    fetchData.mockImplementation(() => mockMovies)
-  })
 
   describe('App component', () => {
     const mockMovies = []
     let mockUser = {name: 'jake', email:'jake', password:'jake'}
     const mockLoadMovies = jest.fn()
-    
+
 
     it('Should match the snapshot', () => {
       const wrapper = shallow(<App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}/>)
@@ -44,11 +34,6 @@ describe('App', () => {
     })
 
     describe('ComponentDidMount', () => {
-      it('Should call fetchData', () => {
-        const wrapper = shallow(<App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}/>, { disableLifecycleMethods: true })
-        wrapper.instance().componentDidMount()
-        expect(fetchData).toHaveBeenCalled()
-      })
 
       it('Should call loadMovies', async () => {
         const wrapper = shallow(<App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}/>, { disableLifecycleMethods: true })
@@ -170,6 +155,54 @@ describe('App', () => {
         )
   
         expect(wrapper.find(Signup)).toHaveLength(1)
+    })
+
+    it('should render the movieDisplay component if at the /favorites route', () => {
+      let wrapper = mount(
+        <Provider store={mockStore}>
+          <MemoryRouter initialEntries={['/favorites']}>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+          </MemoryRouter>
+        </Provider>
+        )
+  
+        expect(wrapper.find(MovieDisplay)).toHaveLength(1)
+    })
+
+    it('should redirect to login if at the /favorites route and no user is logged in', () => {
+      let wrapper = mount(
+        <Provider store={mockStore}>
+          <MemoryRouter initialEntries={['/favorites']}>
+            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}></App>
+          </MemoryRouter>
+        </Provider>
+        )
+  
+        expect(wrapper.find(Login)).toHaveLength(1)
+    })
+
+    it('should render the movieDisplay component if at the /trending route', () => {
+      let wrapper = mount(
+        <Provider store={mockStore}>
+          <MemoryRouter initialEntries={['/trending']}>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+          </MemoryRouter>
+        </Provider>
+        )
+  
+        expect(wrapper.find(MovieDisplay)).toHaveLength(1)
+    })
+
+    it('should redirect to login if at the /favorites route and no user is logged in', () => {
+      let wrapper = mount(
+        <Provider store={mockStore}>
+          <MemoryRouter initialEntries={['/trending']}>
+            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}></App>
+          </MemoryRouter>
+        </Provider>
+        )
+  
+        expect(wrapper.find(Login)).toHaveLength(1)
     })
   })
 })
