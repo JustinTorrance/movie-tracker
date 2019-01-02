@@ -29,19 +29,14 @@ describe('App', () => {
 
 
     it('Should match the snapshot', () => {
-      const wrapper = shallow(<App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}/>)
+      const wrapper = shallow(<App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies} error={false}/>)
       expect(wrapper).toMatchSnapshot()
     })
 
-    describe('ComponentDidMount', () => {
-
-      it('Should call loadMovies', async () => {
-        const wrapper = shallow(<App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}/>, { disableLifecycleMethods: true })
-        await wrapper.instance().componentDidMount()
-        expect(mockLoadMovies).toHaveBeenCalled()
-      })
+    it('Should match the snapshot if in error state', () => {
+      const wrapper = shallow(<App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies} error={true}/>)
+      expect(wrapper).toMatchSnapshot()
     })
-
   })
 
   describe('mapStateToProps', () => {
@@ -80,29 +75,6 @@ describe('App', () => {
 
   })
   
-  describe('mapDispatchToProps', () => {
-
-    it('calls dispatch with a loadMovies action', () => {
-      const mockMovie = {
-        id: 1,
-        title: 'Titanic',
-        year: 1999,
-        rating: 9,
-        posterPic: 'https://image.tmdb.org/t/p/w500///',
-        backdropPic: 'https://image.tmdb.org/t/p/w500///',
-        overview: 'great movie',
-        genres: 'drama',
-        runtime: 50
-      }
-      const mockDispatch = jest.fn()
-      const actionToDispatch = loadMovies(mockMovie)
-      const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.loadMovies(mockMovie)
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-
-    })
-  })
-
   describe('routes', () => {
     const mockMovies = []
     let mockUser = {name: 'jake', email:'jake', password:'jake'}
@@ -113,7 +85,7 @@ describe('App', () => {
       let wrapper = mount(
       <Provider store={mockStore}>
         <MemoryRouter initialEntries={['/']}>
-          <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+          <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies} error={false}></App>
         </MemoryRouter>
       </Provider>
       )
@@ -125,7 +97,7 @@ describe('App', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/login']}>
-            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies} error={false}></App>
           </MemoryRouter>
         </Provider>
         )
@@ -137,7 +109,7 @@ describe('App', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/']}>
-            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}></App>
+            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies} error={false}></App>
           </MemoryRouter>
         </Provider>
         )
@@ -149,7 +121,7 @@ describe('App', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/signup']}>
-            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies} error={false}></App>
           </MemoryRouter>
         </Provider>
         )
@@ -161,7 +133,7 @@ describe('App', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/favorites']}>
-            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies} error={false}></App>
           </MemoryRouter>
         </Provider>
         )
@@ -173,7 +145,7 @@ describe('App', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/favorites']}>
-            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}></App>
+            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies} error={false}></App>
           </MemoryRouter>
         </Provider>
         )
@@ -185,7 +157,7 @@ describe('App', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/trending']}>
-            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies}></App>
+            <App movies={mockMovies} user={mockUser} loadMovies={mockLoadMovies} error={false}></App>
           </MemoryRouter>
         </Provider>
         )
@@ -197,7 +169,7 @@ describe('App', () => {
       let wrapper = mount(
         <Provider store={mockStore}>
           <MemoryRouter initialEntries={['/trending']}>
-            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies}></App>
+            <App movies={mockMovies} user={{}} loadMovies={mockLoadMovies} error={false}></App>
           </MemoryRouter>
         </Provider>
         )

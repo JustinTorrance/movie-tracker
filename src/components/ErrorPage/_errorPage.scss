@@ -1,0 +1,40 @@
+.error-page-container {
+  width: 400px;
+  margin: 200px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 4em;
+    margin: 10px;
+  }
+
+  h2 {
+    font-family: "Raleway", sans-serif;
+    color: white;
+    margin: 10px auto 30px;
+  }
+
+  button {
+    background-color: #2D333B;
+    border: 2px solid $color-blue;
+    border-radius: 18px;
+    color: #B7B7B7;
+    font-family: $regular-font;
+    font-size: 1.1em;
+    padding: 6px 8px;
+    transition: all .3s ease;
+  
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background-color: rgb(22, 131, 194);
+      border-color: #2D333B
+    }
+  }
+}

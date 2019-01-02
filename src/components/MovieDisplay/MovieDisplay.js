@@ -7,6 +7,7 @@ import { PropTypes } from 'prop-types'
 import { getFavorites } from '../../utils/apiCalls.js'
 import Loading from '../Loading/Loading'
 import { Link } from 'react-router-dom'
+import { fetchMovies } from '../../thunks/fetchMovies'
 
 export class MovieDisplay extends Component {
   constructor() {
@@ -18,6 +19,7 @@ export class MovieDisplay extends Component {
   }
 
   componentDidMount = async () => {
+    await this.props.loadMovies('https://api.themoviedb.org/3/movie/popular?api_key=da90047b6c1d3526d4b04666a1b64a0d&language=en-US&page=1&region=US')
     const favoriteMovies = await getFavorites(this.props.user_id)
     this.setState({favoriteMovies: favoriteMovies.data})
   }
@@ -88,12 +90,15 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
+  loadMovies: (url) => dispatch(fetchMovies(url)),
   signOut: () => dispatch(signOut())
 })
+
 
 MovieDisplay.propTypes = {
   movies: PropTypes.array.isRequired,
   signOut: PropTypes.func.isRequired,
+  loadMovies: PropTypes.func.isRequired,
   user_id: PropTypes.number.isRequired,
   isLoading: PropTypes.bool,
   user: PropTypes.object.isRequired

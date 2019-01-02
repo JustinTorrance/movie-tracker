@@ -1,5 +1,7 @@
 import { loadMovies } from '../actions/index'
 import { loading } from '../actions/index'
+import { catchError } from '../actions/index'
+
 
 export const fetchMovies = (url) => {
   return async (dispatch) => {
@@ -10,6 +12,7 @@ export const fetchMovies = (url) => {
       dispatch(loadMovies(movies))
       dispatch(loading(false))      
     } catch(error) {
+      dispatch(catchError(true))
       return 'Error: something went wrong'
     }
   }
