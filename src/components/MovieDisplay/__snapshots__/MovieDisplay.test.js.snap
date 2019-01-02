@@ -4,6 +4,7 @@ exports[`MovieDisplay Should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <MovieDisplay
+    isLoading={false}
     movies={
       Array [
         Object {
@@ -20,6 +21,11 @@ ShallowWrapper {
       ]
     }
     signOut={[MockFunction]}
+    user={
+      Object {
+        "name": "jake",
+      }
+    }
     user_id={1}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -50,6 +56,12 @@ ShallowWrapper {
             />
             tracker
           </h1>
+          <p
+            className="user-greeting"
+          >
+            Hello, 
+            jake
+          </p>
           <Link
             replace={false}
             to="/login"
@@ -58,7 +70,7 @@ ShallowWrapper {
               className="sign-out-btn"
               onClick={[MockFunction]}
             >
-              Sign Out
+              sign out
             </button>
           </Link>
           <Link
@@ -123,6 +135,12 @@ ShallowWrapper {
               />
               tracker
             </h1>,
+            <p
+              className="user-greeting"
+            >
+              Hello, 
+              jake
+            </p>,
             <Link
               replace={false}
               to="/login"
@@ -131,7 +149,7 @@ ShallowWrapper {
                 className="sign-out-btn"
                 onClick={[MockFunction]}
               >
-                Sign Out
+                sign out
               </button>
             </Link>,
             <Link
@@ -189,13 +207,31 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Hello, ",
+                "jake",
+              ],
+              "className": "user-greeting",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Hello, ",
+              "jake",
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
             "nodeType": "class",
             "props": Object {
               "children": <button
                 className="sign-out-btn"
                 onClick={[MockFunction]}
               >
-                Sign Out
+                sign out
               </button>,
               "replace": false,
               "to": "/login",
@@ -206,12 +242,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Sign Out",
+                "children": "sign out",
                 "className": "sign-out-btn",
                 "onClick": [MockFunction],
               },
               "ref": null,
-              "rendered": "Sign Out",
+              "rendered": "sign out",
               "type": "button",
             },
             "type": [Function],
@@ -352,6 +388,12 @@ ShallowWrapper {
               />
               tracker
             </h1>
+            <p
+              className="user-greeting"
+            >
+              Hello, 
+              jake
+            </p>
             <Link
               replace={false}
               to="/login"
@@ -360,7 +402,7 @@ ShallowWrapper {
                 className="sign-out-btn"
                 onClick={[MockFunction]}
               >
-                Sign Out
+                sign out
               </button>
             </Link>
             <Link
@@ -425,6 +467,12 @@ ShallowWrapper {
                 />
                 tracker
               </h1>,
+              <p
+                className="user-greeting"
+              >
+                Hello, 
+                jake
+              </p>,
               <Link
                 replace={false}
                 to="/login"
@@ -433,7 +481,7 @@ ShallowWrapper {
                   className="sign-out-btn"
                   onClick={[MockFunction]}
                 >
-                  Sign Out
+                  sign out
                 </button>
               </Link>,
               <Link
@@ -491,13 +539,31 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Hello, ",
+                  "jake",
+                ],
+                "className": "user-greeting",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Hello, ",
+                "jake",
+              ],
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
               "nodeType": "class",
               "props": Object {
                 "children": <button
                   className="sign-out-btn"
                   onClick={[MockFunction]}
                 >
-                  Sign Out
+                  sign out
                 </button>,
                 "replace": false,
                 "to": "/login",
@@ -508,12 +574,12 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Sign Out",
+                  "children": "sign out",
                   "className": "sign-out-btn",
                   "onClick": [MockFunction],
                 },
                 "ref": null,
-                "rendered": "Sign Out",
+                "rendered": "sign out",
                 "type": "button",
               },
               "type": [Function],
@@ -632,6 +698,82 @@ ShallowWrapper {
         },
       ],
       "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`MovieDisplay Should match the snapshot if isLoading is true 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    isLoading={true}
+    movies={
+      Array [
+        Object {
+          "backdropPic": "https://image.tmdb.org/t/p/w500///",
+          "genres": "drama",
+          "id": 1,
+          "overview": "great movie",
+          "posterPic": "https://image.tmdb.org/t/p/w500///",
+          "rating": 9,
+          "runtime": 50,
+          "title": "Titanic",
+          "year": 1999,
+        },
+      ]
+    }
+    signOut={[MockFunction]}
+    user={
+      Object {
+        "name": "jake",
+      }
+    }
+    user_id={2}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

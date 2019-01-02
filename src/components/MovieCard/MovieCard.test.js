@@ -67,7 +67,7 @@ describe('MovieCard', () => {
         wrapper.instance().toggleFavorite() 
 
         expect(API.addFavorite).toHaveBeenCalled()
-        expect(wrapper.state().favorite).toBe(true)
+        expect(wrapper.state().favorite).toBe(false)
       })
   
       it('should delete Favorite if the card isnt a favorite', () => {
@@ -76,6 +76,32 @@ describe('MovieCard', () => {
         wrapper.instance().toggleFavorite() 
 
         expect(API.deleteFavorite).toHaveBeenCalled()
+        expect(wrapper.state().favorite).toBe(true)
+      })
+
+      it('should handle cases where the movie is passed like movie.movie_id instead of movie.id', () => {
+         const mockMovie = {
+           movie_id: 1,
+           title: 'Titanic',
+           year: 1999,
+           rating: 9,
+           posterPic: 'https://image.tmdb.org/t/p/w500///',
+           backdropPic: 'https://image.tmdb.org/t/p/w500///',
+           overview: 'great movie',
+           genres: 'drama',
+           runtime: 50
+         }
+     
+         wrapper = shallow(
+           <MovieCard movie={mockMovie} user_id={1}/>
+         );
+     
+
+        API.addFavorite = jest.fn()
+        wrapper.state().favorite = false
+        wrapper.instance().toggleFavorite() 
+
+        expect(API.addFavorite).toHaveBeenCalled()
         expect(wrapper.state().favorite).toBe(false)
       })
     
