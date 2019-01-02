@@ -89,6 +89,11 @@ ShallowWrapper {
         >
           Passwords must match
         </h3>,
+        <h3
+          className="passwords-message false"
+        >
+          Please enter a valid e-mail
+        </h3>,
       ],
       "className": "sign-up-container",
     },
@@ -307,6 +312,18 @@ ShallowWrapper {
         "rendered": "Passwords must match",
         "type": "h3",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Please enter a valid e-mail",
+          "className": "passwords-message false",
+        },
+        "ref": null,
+        "rendered": "Please enter a valid e-mail",
+        "type": "h3",
+      },
     ],
     "type": "div",
   },
@@ -387,6 +404,11 @@ ShallowWrapper {
             className="passwords-message false"
           >
             Passwords must match
+          </h3>,
+          <h3
+            className="passwords-message false"
+          >
+            Please enter a valid e-mail
           </h3>,
         ],
         "className": "sign-up-container",
@@ -604,6 +626,18 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": "Passwords must match",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Please enter a valid e-mail",
+            "className": "passwords-message false",
+          },
+          "ref": null,
+          "rendered": "Please enter a valid e-mail",
           "type": "h3",
         },
       ],
@@ -719,6 +753,11 @@ ShallowWrapper {
         >
           Passwords must match
         </h3>,
+        <h3
+          className="passwords-message false"
+        >
+          Please enter a valid e-mail
+        </h3>,
       ],
       "className": "sign-up-container",
     },
@@ -937,6 +976,18 @@ ShallowWrapper {
         "rendered": "Passwords must match",
         "type": "h3",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Please enter a valid e-mail",
+          "className": "passwords-message false",
+        },
+        "ref": null,
+        "rendered": "Please enter a valid e-mail",
+        "type": "h3",
+      },
     ],
     "type": "div",
   },
@@ -1017,6 +1068,11 @@ ShallowWrapper {
             className="passwords-message false"
           >
             Passwords must match
+          </h3>,
+          <h3
+            className="passwords-message false"
+          >
+            Please enter a valid e-mail
           </h3>,
         ],
         "className": "sign-up-container",
@@ -1234,6 +1290,18 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": "Passwords must match",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Please enter a valid e-mail",
+            "className": "passwords-message false",
+          },
+          "ref": null,
+          "rendered": "Please enter a valid e-mail",
           "type": "h3",
         },
       ],

@@ -48,7 +48,7 @@ export default class Signup extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const { name, email, password, confirmPassword } = this.state
-    var emailInputVal = email;
+    const emailInputVal = email
     if (!this.emailValidation(emailInputVal)) {
       this.setState({ validEmail: false, duplicateUser: false, passwordsMatch: true})
       return

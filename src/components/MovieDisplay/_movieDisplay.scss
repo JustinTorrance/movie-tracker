@@ -14,7 +14,7 @@
 
 .user-greeting {
   color: white;
-  right: 44px;
+  right: 250px;
   top: 30px;
   position: absolute;
   padding: 0;
@@ -43,11 +43,11 @@
 }
 
 .sign-out-btn {
-  right: 165px;
+  right: 30px;
 }
 
 .toggle-favorites-btn {
-  right: 265px;
+  right: 130px;
 }
 
 .movie-container-label {
@@ -74,6 +74,13 @@
   width: calc(100% - 60px)
 }
 
+.no-favorites {
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  margin-top: 50px;
+}
+
 @media screen and (max-width: 845px) {
 
   .sign-out-btn, .toggle-favorites-btn {
@@ -81,15 +88,15 @@
   }
 
   .sign-out-btn {
-    right: 300px;
+    right: 50px;
   }
 
   .toggle-favorites-btn {
-    right: 200px;
+    right: 150px;
   }
 
   .user-greeting {
-    right: 50px;
+    right: 260px;
 
   }
 

@@ -34,10 +34,25 @@ describe('SignUp Component', () => {
       duplicateUser: false,
       validUser: false,
       formComplete: false,
-      passwordsMatch: true
+      passwordsMatch: true,
+      validEmail: true
     }
 
     expect(wrapper.state()).toEqual(expected)
+  })
+
+  describe('emailValidation', () => {
+    it('should return true if valid email', () => {
+      const email = wrapper.state().email = "ashley@gmail.com"
+      const result = wrapper.instance().emailValidation(email)
+      expect(result).toEqual(true)
+    })
+
+    it('should return false if valid email', () => {
+      const email = wrapper.state().email = "ashlesladh"
+      const result = wrapper.instançce().emailValidation(email)
+      expect(result).toEqual(false)
+    })
   })
 
   describe('handleChange', () => {
@@ -85,6 +100,14 @@ describe('SignUp Component', () => {
       const spy = jest.spyOn(wrapper.instance(), 'emailValidation')
       await wrapper.instance().handleSubmit(mockEvent)
       expect(spy).toHaveBeenCalled()
+    })
+
+    it('should setState if email is invalid', async () => {
+      wrapper.state().email = "aashdkj"
+      await wrapper.instance().handleSubmit(mockEvent)
+      expect(wrapper.state().validEmail).toBe(false)
+      expect(wrapper.state().duplicateUser).toBe(false)
+      expect(wrapper.state().passwordsMatch).toBe(true)
     })
 
     it('Should check if passwords match', () => {

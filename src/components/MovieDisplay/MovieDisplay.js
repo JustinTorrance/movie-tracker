@@ -74,7 +74,7 @@ export class MovieDisplay extends Component {
           )
         })}
         {
-          renderedMovies.length === 0 && <h2>You Have No Favorites</h2>
+          renderedMovies.length === 0 && <h2 className="no-favorites">You Have No Favorites</h2>
         }
         </div>
       </section>
