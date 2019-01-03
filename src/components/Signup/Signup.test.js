@@ -50,7 +50,7 @@ describe('SignUp Component', () => {
 
     it('should return false if valid email', () => {
       const email = wrapper.state().email = "ashlesladh"
-      const result = wrapper.instançce().emailValidation(email)
+      const result = wrapper.instance().emailValidation(email)
       expect(result).toEqual(false)
     })
   })
